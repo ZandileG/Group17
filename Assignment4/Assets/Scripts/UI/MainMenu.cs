@@ -8,7 +8,7 @@ public class MainMenu : MonoBehaviour
   //This activates the "Play"button's functionality
     public void Play()
     {
-        SceneManager.LoadScene("Game");
+        SceneManager.LoadScene("Level");
     }
 
     public void Restart()
