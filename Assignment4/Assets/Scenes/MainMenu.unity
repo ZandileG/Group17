@@ -2127,9 +2127,12 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Overview \r\n\n\r\nGameplay\r\n \n\r\nControls\r\n1. Use the arrow keys
-    to move left and right.\r\n2. Press the space bar to shoot at the aliens\r\n3.
-    Click on a treasure to collect it"
+  m_text: "Overview \r\nYou are an adventurer on a journey through an ancient temple
+    to find hidden treasure. Armed with your rifle and your wit, you must navigate
+    through the temple and avoid getting attacked by enemies to get to the treasure.
+    \n\r\nControls\r\n1. Use the arrow keys to move left and right\n2. Click on the
+    screen to shoot\n3. Press the space bar to jump \n4. Click on a treasure to collect
+    it"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
   m_sharedMaterial: {fileID: 2164040, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
