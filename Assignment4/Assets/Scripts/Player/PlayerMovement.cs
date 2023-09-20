@@ -11,20 +11,20 @@ public class PlayerMovement : MonoBehaviour
     private KeyCode sprintkey = KeyCode.LeftShift;
 
 
-    private float moveSpeed = 15f;
-    private float sprintSpeed = 25f;
+    private float moveSpeed = 100f;
+    private float sprintSpeed = 250f;
     private float airVelocityMultiplier = 1.1f;
     private bool isSprinting;
 
-    private float jumpForce = 100f;
+    private float jumpForce = 300f;
     private float jumpCooldown = 0.5f;
     private int jumpCount = 2;
     private bool canJump;
 
     
-    private float playerHeight = 2f;
+    private float playerHeight = 20f;
     private bool isGrounded;
-    private float groundDrag = 1f;
+    private float groundDrag = 1.5f;
 
     private Vector3 moveDirection;
     private Rigidbody rb;
@@ -85,8 +85,7 @@ public class PlayerMovement : MonoBehaviour
     private void Move()
     {
 
-        moveDirection = orientation.forward * vertInput + orientation.right * horizInput;
-
+        moveDirection = new Vector3(orientation.forward.x,0,orientation.forward.z) * vertInput + orientation.right * horizInput;
         if (isGrounded)
             if (isSprinting)
                 rb.AddForce(moveDirection.normalized * sprintSpeed * 10f, ForceMode.Force);
@@ -102,7 +101,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (!isGrounded)
         {
-            if (flatVel.magnitude > moveSpeed)
+            if (flatVel.magnitude > sprintSpeed)
             {
                 Vector3 limitedVel = flatVel.normalized * moveSpeed;
                 rb.velocity = new Vector3(limitedVel.x, rb.velocity.y, limitedVel.z);

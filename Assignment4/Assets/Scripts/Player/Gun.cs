@@ -25,7 +25,7 @@ public class Gun : MonoBehaviour
             if (transform.parent.parent.name == "Player")
                 bulletCount--;
             gunSource.PlayOneShot(fireSound);
-            Debug.Log("Bullet Fired");
+            //Debug.Log("Bullet Fired");
             canFire = false;
             Hit();
             gunAnimations.Play(recoilAnimation);
