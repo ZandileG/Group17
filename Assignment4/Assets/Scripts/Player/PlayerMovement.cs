@@ -16,7 +16,7 @@ public class PlayerMovement : MonoBehaviour
     private float airVelocityMultiplier = 1.1f;
     private bool isSprinting;
 
-    private float jumpForce = 300f;
+    private float jumpForce = 400f;
     private float jumpCooldown = 0.5f;
     private int jumpCount = 2;
     private bool canJump;
