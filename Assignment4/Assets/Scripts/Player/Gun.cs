@@ -74,6 +74,7 @@ public class Gun : MonoBehaviour
             {
                 if (!bulletSource.isPlaying)
                     bulletSource.PlayOneShot(hitSound);
+                Destroy(hitObject.transform.gameObject);
             }
             else
             {
