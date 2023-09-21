@@ -2266,11 +2266,12 @@ MonoBehaviour:
     through the temple and avoid getting attacked by enemies to get to the treasure.
     There will be obstacles and dead ends along the hallways, do you have what it
     takes to complete the challenge?\n\r\nControls\r\n1. Use the arrow keys to move
-    left and right\n2. Move the mouse around to change the orientation of your player
-    character \n3. Click on the screen to shoot\n4. Press \"R\" to reload your gun
-    \n5. You lose a life when an enemy comes into contact with you\n6. The player
-    character must collide with a treasure to collect it\n7. Press the space bar
-    to jump \n8. Press the \"Esc\" key to pause the game"
+    left and right\n2. Press \"Shift\" + an arrow key to sprint\n3. Move the mouse
+    around to change the orientation of your player character \n4. Click on the screen
+    to shoot\n5. Press \"R\" to reload your gun \n6. You lose a life when an enemy
+    comes into contact with you\n7. The player character must collide with a treasure
+    to collect it\n8. Press the space bar to jump \n9. Press the \"Esc\" key to pause
+    the game"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
   m_sharedMaterial: {fileID: 2164040, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
