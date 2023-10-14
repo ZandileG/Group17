@@ -30,7 +30,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8225570117167252574}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &3517835473955589062
 SpriteRenderer:
@@ -114,7 +114,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8225570117167252574}
-  m_RootOrder: -1
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!212 &6851422381798451340
 SpriteRenderer:
@@ -179,7 +179,7 @@ GameObject:
   - component: {fileID: 8225570117167252574}
   - component: {fileID: 5557186026216133818}
   m_Layer: 0
-  m_Name: GunDemo
+  m_Name: Revolver
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -215,12 +215,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bullet: {fileID: 7762108164362330406, guid: 6fb7229ab515ca14b95dbc40abf11c36, type: 3}
+  barrel: {fileID: 716660625280220938}
   aim: {fileID: 0}
-  loadedProjectile: {fileID: 0}
+  loadedProjectile: {fileID: 7762108164362330406, guid: 6fb7229ab515ca14b95dbc40abf11c36, type: 3}
+  reloadIndicator: {fileID: 0}
   damage: 2
   shotDelay: 0.8
   shotForce: 80
   fireCount: 1
   fireSpread: 0
   hasChargeTime: 0
-  chargeTime: 0
+  chargeRate: 0
+  reloadTime: 2
+  ammoCount: 6

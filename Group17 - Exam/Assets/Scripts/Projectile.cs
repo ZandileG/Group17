@@ -5,6 +5,7 @@ using UnityEngine;
 public class Projectile : MonoBehaviour
 {
     [SerializeField] private int destroyTime = 5;
+    [SerializeField] private bool canPierce = false;
     private int damage = 0;
 
     void Start()
@@ -25,6 +26,11 @@ public class Projectile : MonoBehaviour
         Destroy(gameObject);
     }
 
+    public int GetDamage()
+    {
+        return damage;
+    }
+
     public void SetDamage(int d)
     {
         damage = d;
@@ -34,8 +40,10 @@ public class Projectile : MonoBehaviour
     {
         if (other.TryGetComponent<Enemy>(out Enemy enemy))
         {
-            Debug.Log("Hit");
+            //Debug.Log("Hit");
             enemy.Damage(damage);
+            if (!canPierce)
+                Destroy(gameObject);
         }
     }
 

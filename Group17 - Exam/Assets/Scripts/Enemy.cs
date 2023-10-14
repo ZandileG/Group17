@@ -1,13 +1,26 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Enemy : MonoBehaviour
 {
     [SerializeField] private int health;
-    [SerializeField] private int damage;
+    [SerializeField] private int attackDamage;
+    [SerializeField] private Slider healthDisplay;
     // Start is called before the first frame update
     
+    private void Start()
+    {
+        healthDisplay.maxValue = health;
+        healthDisplay.value = health;
+    }
+
+    public int GetDamage()
+    {
+        return attackDamage;
+    }
 
     private void Kill()
     {
@@ -17,19 +30,20 @@ public class Enemy : MonoBehaviour
     public void Damage(int damage)
     {
         health -= damage;
+        healthDisplay.value = health;
         if (health <= 0)
         {
-            //Kill();
-            Debug.Log("Enemy Killed");
+            Kill();
+            //Debug.Log("Enemy Killed");
            
         }
     }
-
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.TryGetComponent<Player>(out Player player))
         {
-            player.Damage(damage);    
+            player.Damage(attackDamage);
         }
     }
+
 }

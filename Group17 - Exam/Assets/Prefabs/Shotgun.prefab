@@ -30,7 +30,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7494742154546924649}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &5098743345412085411
 SpriteRenderer:
@@ -131,15 +131,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bullet: {fileID: 4616706464196156806, guid: fff878703d025d046ba9385c41490649, type: 3}
+  barrel: {fileID: 2908556510334955075}
   aim: {fileID: 0}
   loadedProjectile: {fileID: 4616706464196156806, guid: fff878703d025d046ba9385c41490649, type: 3}
+  reloadIndicator: {fileID: 0}
   damage: 4
-  shotDelay: 1.2
+  shotDelay: 0.5
   shotForce: 40
   fireCount: 5
-  fireSpread: 2
+  fireSpread: 10
   hasChargeTime: 0
-  chargeTime: 0
+  chargeRate: 0
+  reloadTime: 0.5
+  ammoCount: 1
 --- !u!1 &7557431416883811876
 GameObject:
   m_ObjectHideFlags: 0
@@ -170,7 +174,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7494742154546924649}
-  m_RootOrder: -1
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!212 &845111846908910170
 SpriteRenderer:

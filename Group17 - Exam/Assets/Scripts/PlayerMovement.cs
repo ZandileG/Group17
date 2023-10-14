@@ -9,14 +9,15 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float playerWalkSpeed = 5f;
     [SerializeField] private float playerSprintSpeed = 15f;
     [SerializeField] private int playerMaxStamina = 1000;
+    [SerializeField] private float playerRollInvilFrames = 0.5f;
     [SerializeField] Slider staminaBar;
+    [SerializeField] private BoxCollider2D playerHitbox;
 
     private int playerStamina;
     private Rigidbody2D playerRB;
     private KeyCode rollKey = KeyCode.Space, sprintKey = KeyCode.LeftShift;
 
     Vector2 moveDirection;
-    //private float rollInputDelay = 0.25f;
     private bool isSprinting, isRolling;
     private float vertInput, horizInput;
 
@@ -25,6 +26,8 @@ public class PlayerMovement : MonoBehaviour
         playerRB = GetComponent<Rigidbody2D>();
         orientation = GetComponent<Transform>();
         playerStamina = playerMaxStamina;
+        staminaBar.maxValue = playerMaxStamina;
+        staminaBar.value = playerMaxStamina;
         isSprinting = false;
         isRolling = false;
     }
@@ -38,7 +41,7 @@ public class PlayerMovement : MonoBehaviour
     private void FixedUpdate()
     {
         if (playerStamina < playerMaxStamina && !isSprinting && !isRolling)
-            playerStamina++;
+            playerStamina += 5;
         if (isSprinting && (playerRB.velocity.x > 0 || playerRB.velocity.y > 0 || playerRB.velocity.x < 0 || playerRB.velocity.y < 0))
         {
             if (playerStamina > 0)
@@ -95,8 +98,18 @@ public class PlayerMovement : MonoBehaviour
 
     IEnumerator RollDelay()
     {
+        if (playerHitbox.enabled)
+            playerHitbox.enabled = false;
+        StartCoroutine(RollInvil());
         yield return new WaitForSeconds(1);
 
         isRolling = false;
     }
+
+    IEnumerator RollInvil()
+    {
+        yield return new WaitForSeconds(playerRollInvilFrames);
+        playerHitbox.enabled = true;
+    }
+
 }
