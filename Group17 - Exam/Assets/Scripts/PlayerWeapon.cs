@@ -15,18 +15,17 @@ public class PlayerWeapon : MonoBehaviour
     [SerializeField] private int fireCount = 2;
     [SerializeField] private float fireSpread = 10;
     [SerializeField] private bool hasChargeTime = false;
-    [SerializeField] private float chargeTime = 0f;
+    [SerializeField] private float chargeRate = 0f;
 
     private Camera playerCam;
     private KeyCode fireKey = KeyCode.Mouse0;
     private bool canFire, isCharged;
     private Vector3 mousePos;
     private float randomSpread;
-    private float count;
+    private float currentCharge;
 
     private void Start()
     {
-        count = 0;
         canFire = true;   
         isCharged = false;
         playerCam = FindObjectOfType<Camera>();
@@ -39,19 +38,22 @@ public class PlayerWeapon : MonoBehaviour
         Vector3 weaponRotation = mousePos - transform.position;
         if (hasChargeTime)
         {
+            if (Input.GetKey(fireKey) && isCharged)
+            {
+                if (currentCharge <= 1)
+                    currentCharge += chargeRate;
+            }
             if (Input.GetKeyUp(fireKey) && isCharged)
             {
                 isCharged = false;
-                count = 0;
                 Fire(weaponRotation);
                 ReleaseArrow();
             }
-            if (Input.GetKeyUp(fireKey) && !isCharged)
-                count = 0;
             if (Input.GetKeyDown(fireKey) && !isCharged)
             {
                 LoadArrow();
                 //loadedProjectile.transform.position = Vector3.zero;
+
                 isCharged = true;
             }
             //StartCoroutine(ChargeUp());
@@ -60,7 +62,11 @@ public class PlayerWeapon : MonoBehaviour
         }
         else
             if (Input.GetKey(fireKey))
+        {
+            currentCharge = 1f;
             Fire(weaponRotation);
+
+        }
     }
 
     private void FixedUpdate()
@@ -77,14 +83,16 @@ public class PlayerWeapon : MonoBehaviour
             for (int i = 1; i <= fireCount; i++)
             {
                 randomSpread = Random.Range(-1 * fireSpread, fireSpread);
-                Debug.Log(playerAim);
+                //Debug.Log(playerAim);
                 Quaternion rotation = Quaternion.Euler(transform.eulerAngles.x, transform.eulerAngles.y, transform.eulerAngles.z + randomSpread);
                 Vector3 position = new Vector3(transform.position.x, transform.position.y, transform.position.z);
                 GameObject projectile = Instantiate(bullet, position, rotation);
-                projectile.GetComponent<Projectile>().Fire(new Vector2(playerAim.x + randomSpread, playerAim.y + randomSpread).normalized * shotForce);
+                projectile.GetComponent<Projectile>().SetDamage(damage);
+                projectile.GetComponent<Projectile>().Fire(new Vector2(playerAim.x + randomSpread, playerAim.y + randomSpread).normalized * shotForce * currentCharge);
+                currentCharge = 0;
 
             }
-            Debug.Log("Shot");
+            //Debug.Log("Shot");
             //gameController.FireShot();
             StartCoroutine(FiringDelay());
         }
@@ -98,13 +106,6 @@ public class PlayerWeapon : MonoBehaviour
     public void ReleaseArrow()
     {
         loadedProjectile.SetActive(false);
-    }
-
-    IEnumerator ChargeUp()
-    {
-        yield return new WaitForSeconds(chargeTime);
-        isCharged = true;
-        Debug.Log("Charged");
     }
 
     

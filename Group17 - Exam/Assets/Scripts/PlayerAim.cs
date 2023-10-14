@@ -5,14 +5,15 @@ using UnityEngine;
 public class PlayerAim : MonoBehaviour
 {
     [SerializeField] private GameObject playerGun;
+    [SerializeField] private GameObject player;
     private bool gunFacingRight;
 
     private Camera playerCam;
-    private Vector3 mousePos;
+    private Vector3 mousePos, cameraPos;
     // Start is called before the first frame update
     void Start()
     {
-        playerCam = FindObjectOfType<Camera>();
+        playerCam = FindObjectOfType<Camera>();     
         gunFacingRight = true;
     }
 
@@ -26,7 +27,9 @@ public class PlayerAim : MonoBehaviour
         float rotZ = Mathf.Atan2(rotation.y, rotation.x) * Mathf.Rad2Deg;
 
         transform.rotation = Quaternion.Euler(0, 0, rotZ);
-
+        cameraPos = player.transform.position;
+        cameraPos.z = -10;
+        playerCam.transform.position = cameraPos;
         
         if (((transform.rotation.eulerAngles.z < 90 && transform.rotation.eulerAngles.z >= 0) || (transform.rotation.eulerAngles.z > 270 && transform.rotation.eulerAngles.z <= 360)) && !gunFacingRight)
         {

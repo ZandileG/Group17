@@ -5,6 +5,7 @@ using UnityEngine;
 public class Projectile : MonoBehaviour
 {
     [SerializeField] private int destroyTime = 5;
+    private int damage = 0;
 
     void Start()
     {
@@ -23,6 +24,21 @@ public class Projectile : MonoBehaviour
         yield return new WaitForSeconds(destroyTime);
         Destroy(gameObject);
     }
+
+    public void SetDamage(int d)
+    {
+        damage = d;
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.TryGetComponent<Enemy>(out Enemy enemy))
+        {
+            Debug.Log("Hit");
+            enemy.Damage(damage);
+        }
+    }
+
 
 }
 
