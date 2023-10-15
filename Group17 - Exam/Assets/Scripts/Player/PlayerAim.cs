@@ -27,21 +27,20 @@ public class PlayerAim : MonoBehaviour
         float rotZ = Mathf.Atan2(rotation.y, rotation.x) * Mathf.Rad2Deg;
 
         transform.rotation = Quaternion.Euler(0, 0, rotZ);
-        cameraPos = player.transform.position;
-        cameraPos.z = -10;
+        cameraPos =  new Vector3(player.transform.position.x, player.transform.position.y, -10);
         playerCam.transform.position = cameraPos;
         
-        if (((transform.rotation.eulerAngles.z < 90 && transform.rotation.eulerAngles.z >= 0) || (transform.rotation.eulerAngles.z > 270 && transform.rotation.eulerAngles.z <= 360)) && !gunFacingRight)
-        {
-            Flip();
-            gunFacingRight = true;
-        }
-        else if (transform.rotation.eulerAngles.z < 270 && transform.rotation.eulerAngles.z > 90 && gunFacingRight)
-        {
-            Flip();
-            gunFacingRight = false;
-        }
-
+            if (((transform.rotation.eulerAngles.z < 90 && transform.rotation.eulerAngles.z >= 0) || (transform.rotation.eulerAngles.z > 270 && transform.rotation.eulerAngles.z <= 360)) && !gunFacingRight)
+            {
+                Flip();
+                gunFacingRight = true;
+            }
+            else if (transform.rotation.eulerAngles.z < 270 && transform.rotation.eulerAngles.z > 90 && gunFacingRight)
+            {
+                Flip();
+                gunFacingRight = false;
+            }
+        
     }
 
     private void Flip()
@@ -51,8 +50,4 @@ public class PlayerAim : MonoBehaviour
         playerGun.transform.localScale = currentScale;
     }
 
-    public bool GetDir()
-    {
-        return gunFacingRight;
-    }
 }

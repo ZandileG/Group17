@@ -44,6 +44,10 @@ public class Enemy : MonoBehaviour
         {
             player.Damage(attackDamage);
         }
+        if (other.TryGetComponent<Crops>(out Crops crop))
+        {
+            crop.Damage(attackDamage);
+        }
     }
 
 }
