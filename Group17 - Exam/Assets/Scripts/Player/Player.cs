@@ -9,9 +9,14 @@ public class Player : MonoBehaviour
     [SerializeField] private string playerName;
     [SerializeField] Slider healthBar;
     [SerializeField] private BoxCollider2D playerHitbox;
+    [SerializeField] private GameObject defeatUI;
     [SerializeField] private float InvilFrames;
+    [SerializeField] private PlayerManager playerManager;
     private void Start()
     {
+        playerManager = GetComponent<PlayerManager>();
+        defeatUI = playerManager.GetUI();
+        defeatUI.SetActive(false);
         healthBar.maxValue = health;
         healthBar.value = health;
     }
@@ -22,7 +27,8 @@ public class Player : MonoBehaviour
         if (health <= 0)
         {
             healthBar.value = 0;
-            Debug.Log("You Died");
+            defeatUI.SetActive(true);
+            Time.timeScale = 0;
         }
         playerHitbox.enabled = false;
         StartCoroutine(PlayerInvil());

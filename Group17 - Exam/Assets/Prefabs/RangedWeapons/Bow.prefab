@@ -217,20 +217,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26b8947130bc14c4f8f6f17b3413e157, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   bullet: {fileID: 8710447600365936610, guid: 6f88c6dd4e2d33b40b79e70cff4c9940, type: 3}
   barrel: {fileID: 762328171486425017}
-  aim: {fileID: 0}
   loadedProjectile: {fileID: 1026847640556373292}
   reloadIndicator: {fileID: 0}
+  ammoDisplay: {fileID: 0}
   damage: 2
   shotDelay: 1
   shotForce: 50
   fireCount: 1
   fireSpread: 0
   hasChargeTime: 1
-  chargeRate: 0
+  chargeRate: 0.1
   reloadTime: 1
   ammoCount: 1
+  weaponName: Bow
 --- !u!1 &3947721736604572181
 GameObject:
   m_ObjectHideFlags: 0

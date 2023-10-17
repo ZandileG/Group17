@@ -132,11 +132,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26b8947130bc14c4f8f6f17b3413e157, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   bullet: {fileID: 3978808478240080185, guid: d0f1c830da1288e4097ebd8a702cbc76, type: 3}
   barrel: {fileID: 1742558294562768894}
   aim: {fileID: 0}
   loadedProjectile: {fileID: 6675914440116041135, guid: d59d2108cbacd5e4cbe397325ca61fae, type: 3}
   reloadIndicator: {fileID: 0}
+  ammoDisplay: {fileID: 0}
   damage: 5
   shotDelay: 0.5
   shotForce: 120
@@ -146,6 +148,7 @@ MonoBehaviour:
   chargeRate: 0
   reloadTime: 4
   ammoCount: 15
+  weaponName: Laser Rifle
 --- !u!1 &1742558294562768894
 GameObject:
   m_ObjectHideFlags: 0

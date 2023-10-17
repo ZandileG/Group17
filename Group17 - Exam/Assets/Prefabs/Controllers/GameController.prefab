@@ -1,0 +1,91 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &7156594968026707964
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4441258507224133241}
+  - component: {fileID: 8735864357388980057}
+  - component: {fileID: 8735864357388980134}
+  m_Layer: 0
+  m_Name: GameController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4441258507224133241
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7156594968026707964}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.4677566, y: 0.28665286, z: -0.0032977902}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8735864357388980057
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7156594968026707964}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aaaaf155720e4f44ca5d7dd586fa4fee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameController: {fileID: 0}
+--- !u!114 &8735864357388980134
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7156594968026707964}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10642c300da9ba24c8fa9ade40bcfd5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentLevelManager: {fileID: 0}
+  bowWeapons:
+  - {fileID: 2691723344376171451, guid: 81e96503bb88c1849b6d780e3c9f8ecd, type: 3}
+  - {fileID: 2691723344376171451, guid: 81e96503bb88c1849b6d780e3c9f8ecd, type: 3}
+  - {fileID: 2691723344376171451, guid: 81e96503bb88c1849b6d780e3c9f8ecd, type: 3}
+  - {fileID: 2691723344376171451, guid: 81e96503bb88c1849b6d780e3c9f8ecd, type: 3}
+  - {fileID: 2691723344376171451, guid: 81e96503bb88c1849b6d780e3c9f8ecd, type: 3}
+  revolverWeapons:
+  - {fileID: 6659639763315482395, guid: 7caf7f2033b923b4f9a441cffaafcfe2, type: 3}
+  - {fileID: 6659639763315482395, guid: 7caf7f2033b923b4f9a441cffaafcfe2, type: 3}
+  - {fileID: 6659639763315482395, guid: 7caf7f2033b923b4f9a441cffaafcfe2, type: 3}
+  - {fileID: 6659639763315482395, guid: 7caf7f2033b923b4f9a441cffaafcfe2, type: 3}
+  - {fileID: 6659639763315482395, guid: 7caf7f2033b923b4f9a441cffaafcfe2, type: 3}
+  shotgunWeapons:
+  - {fileID: 6702222261314568105, guid: c48de0599a293dd46abed6c74ea3e655, type: 3}
+  - {fileID: 6702222261314568105, guid: c48de0599a293dd46abed6c74ea3e655, type: 3}
+  - {fileID: 6702222261314568105, guid: c48de0599a293dd46abed6c74ea3e655, type: 3}
+  - {fileID: 6702222261314568105, guid: c48de0599a293dd46abed6c74ea3e655, type: 3}
+  - {fileID: 6702222261314568105, guid: c48de0599a293dd46abed6c74ea3e655, type: 3}
+  smgWeapons:
+  - {fileID: 8235392528216751832, guid: eb4f70153d3dae240b7d955e0b5a0bc3, type: 3}
+  - {fileID: 8235392528216751832, guid: eb4f70153d3dae240b7d955e0b5a0bc3, type: 3}
+  - {fileID: 8235392528216751832, guid: eb4f70153d3dae240b7d955e0b5a0bc3, type: 3}
+  - {fileID: 8235392528216751832, guid: eb4f70153d3dae240b7d955e0b5a0bc3, type: 3}
+  - {fileID: 8235392528216751832, guid: eb4f70153d3dae240b7d955e0b5a0bc3, type: 3}
+  arWeapons:
+  - {fileID: 298901568839467313, guid: 8c255f4d6e9d5bf41bd4905c818afcb5, type: 3}
+  - {fileID: 298901568839467313, guid: 8c255f4d6e9d5bf41bd4905c818afcb5, type: 3}
+  - {fileID: 298901568839467313, guid: 8c255f4d6e9d5bf41bd4905c818afcb5, type: 3}
+  - {fileID: 298901568839467313, guid: 8c255f4d6e9d5bf41bd4905c818afcb5, type: 3}
+  - {fileID: 298901568839467313, guid: 8c255f4d6e9d5bf41bd4905c818afcb5, type: 3}

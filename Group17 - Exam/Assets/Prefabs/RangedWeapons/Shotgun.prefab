@@ -130,20 +130,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26b8947130bc14c4f8f6f17b3413e157, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  manager: {fileID: 0}
   bullet: {fileID: 4616706464196156806, guid: fff878703d025d046ba9385c41490649, type: 3}
   barrel: {fileID: 2908556510334955075}
-  aim: {fileID: 0}
   loadedProjectile: {fileID: 4616706464196156806, guid: fff878703d025d046ba9385c41490649, type: 3}
   reloadIndicator: {fileID: 0}
+  ammoDisplay: {fileID: 0}
   damage: 4
   shotDelay: 0.5
   shotForce: 40
   fireCount: 5
-  fireSpread: 10
+  fireSpread: 5
   hasChargeTime: 0
   chargeRate: 0
   reloadTime: 0.5
   ammoCount: 1
+  weaponName: Shotgun
 --- !u!1 &7557431416883811876
 GameObject:
   m_ObjectHideFlags: 0

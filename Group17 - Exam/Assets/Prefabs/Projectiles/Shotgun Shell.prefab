@@ -9,7 +9,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 767884323773752052, guid: 6fb7229ab515ca14b95dbc40abf11c36, type: 3}
       propertyPath: m_Layer
-      value: 6
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1112648458293190979, guid: 6fb7229ab515ca14b95dbc40abf11c36, type: 3}
       propertyPath: destroyTime
@@ -25,7 +25,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7762108164362330406, guid: 6fb7229ab515ca14b95dbc40abf11c36, type: 3}
       propertyPath: m_Layer
-      value: 6
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8581507255995469813, guid: 6fb7229ab515ca14b95dbc40abf11c36, type: 3}
       propertyPath: m_RootOrder

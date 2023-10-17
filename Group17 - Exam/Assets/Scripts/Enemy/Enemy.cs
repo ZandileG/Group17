@@ -9,10 +9,12 @@ public class Enemy : MonoBehaviour
     [SerializeField] private int health;
     [SerializeField] private int attackDamage;
     [SerializeField] private Slider healthDisplay;
+    private LevelManager levelManager;
     // Start is called before the first frame update
     
     private void Start()
     {
+        levelManager = FindObjectOfType<LevelManager>();
         healthDisplay.maxValue = health;
         healthDisplay.value = health;
     }
@@ -24,6 +26,7 @@ public class Enemy : MonoBehaviour
 
     private void Kill()
     {
+        levelManager.KillEnemy();
         Destroy(gameObject);
     }
 

@@ -10,7 +10,6 @@ public class PlayerWeapon : MonoBehaviour
     [SerializeField] private PlayerManager manager;
     [SerializeField] private GameObject bullet;
     [SerializeField] private GameObject barrel;
-    [SerializeField] private GameObject aim;
     [SerializeField] private GameObject loadedProjectile;
     [SerializeField] private GameObject reloadIndicator;
     [SerializeField] private Text ammoDisplay;
@@ -23,6 +22,7 @@ public class PlayerWeapon : MonoBehaviour
     [SerializeField] private float chargeRate = 0f;
     [SerializeField] private float reloadTime = 1f;
     [SerializeField] private int ammoCount = 1;
+    [SerializeField] private string weaponName;
 
     private Camera playerCam;
     private KeyCode fireKey = KeyCode.Mouse0;
@@ -32,15 +32,17 @@ public class PlayerWeapon : MonoBehaviour
     private float currentCharge;
     private int currentAmmo;
 
-    private void Start()
+    private void Awake()
     {
-
+        canFire = true;   
+        isCharged = false;
+        manager = FindObjectOfType<PlayerManager>();
+        reloadIndicator = manager.GetReloadIndicator();
+        ammoDisplay = manager.GetAmmoDisplay();
+        playerCam = FindObjectOfType<Camera>();
         reloadIndicator.SetActive(false);
         currentAmmo = ammoCount;
         UpdateAmmo();
-        canFire = true;   
-        isCharged = false;
-        playerCam = FindObjectOfType<Camera>();
     }
 
     private void Update()
@@ -158,6 +160,11 @@ public class PlayerWeapon : MonoBehaviour
     public float GetForce()
     {
         return shotForce;
+    }
+
+    public string GetName()
+    {
+        return weaponName;
     }
 
     private void UpdateAmmo()

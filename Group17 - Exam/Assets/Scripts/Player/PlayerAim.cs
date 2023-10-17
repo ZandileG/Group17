@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class PlayerAim : MonoBehaviour
 {
-    [SerializeField] private GameObject playerGun;
+    [SerializeField] private GameObject playerWeapon;
     [SerializeField] private GameObject player;
+    [SerializeField] private bool hasWeapon = false;
     private bool gunFacingRight;
 
     private Camera playerCam;
@@ -20,16 +21,18 @@ public class PlayerAim : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        mousePos = playerCam.ScreenToWorldPoint(Input.mousePosition);
+        if (hasWeapon)
+        {
+            mousePos = playerCam.ScreenToWorldPoint(Input.mousePosition);
 
-        Vector3 rotation = mousePos - transform.position;
+            Vector3 rotation = mousePos - transform.position;
 
-        float rotZ = Mathf.Atan2(rotation.y, rotation.x) * Mathf.Rad2Deg;
+            float rotZ = Mathf.Atan2(rotation.y, rotation.x) * Mathf.Rad2Deg;
 
-        transform.rotation = Quaternion.Euler(0, 0, rotZ);
-        cameraPos =  new Vector3(player.transform.position.x, player.transform.position.y, -10);
-        playerCam.transform.position = cameraPos;
-        
+            transform.rotation = Quaternion.Euler(0, 0, rotZ);
+            cameraPos = new Vector3(player.transform.position.x, player.transform.position.y, -10);
+            playerCam.transform.position = cameraPos;
+
             if (((transform.rotation.eulerAngles.z < 90 && transform.rotation.eulerAngles.z >= 0) || (transform.rotation.eulerAngles.z > 270 && transform.rotation.eulerAngles.z <= 360)) && !gunFacingRight)
             {
                 Flip();
@@ -40,14 +43,20 @@ public class PlayerAim : MonoBehaviour
                 Flip();
                 gunFacingRight = false;
             }
+        }
         
     }
 
+    public void SetWeapon(GameObject newWeapon)
+    {
+        playerWeapon = newWeapon;
+        hasWeapon = true;
+    }
     private void Flip()
     {
-        Vector3 currentScale = playerGun.transform.localScale;
+        Vector3 currentScale = playerWeapon.transform.localScale;
         currentScale.y *= -1;
-        playerGun.transform.localScale = currentScale;
+        playerWeapon.transform.localScale = currentScale;
     }
 
 }
