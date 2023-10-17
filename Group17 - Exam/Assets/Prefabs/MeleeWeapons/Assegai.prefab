@@ -240,7 +240,7 @@ MonoBehaviour:
   manager: {fileID: 0}
   animator: {fileID: 1611680099143728557}
   meleeDamage: 1
-  meleeRange: 0.15
+  meleeRange: 0.3
   meleePoint: {fileID: 2523765029327712540}
   enemyLayer:
     serializedVersion: 2

@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5093271719537935477}
   - component: {fileID: 679475531405610814}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -96,7 +96,7 @@ GameObject:
   - component: {fileID: 5081383261764924279}
   - component: {fileID: 1112648458293190979}
   - component: {fileID: 1936541832829651508}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Bullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -153,6 +153,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destroyTime: 5
+  canPierce: 0
 --- !u!61 &1936541832829651508
 BoxCollider2D:
   m_ObjectHideFlags: 0

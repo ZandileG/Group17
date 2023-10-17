@@ -25,6 +25,7 @@ public class SceneController : MonoBehaviour
 
     public void MainMenu()
     {
+        gameController.ResetGame();
         SceneManager.LoadScene("StartScreen");
     }
 

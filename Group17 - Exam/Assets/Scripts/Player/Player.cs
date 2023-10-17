@@ -5,7 +5,8 @@ using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
-    [SerializeField] private int health;
+    [SerializeField] private int maxHealth;
+    [SerializeField] private int currenthealth;
     [SerializeField] private string playerName;
     [SerializeField] Slider healthBar;
     [SerializeField] private BoxCollider2D playerHitbox;
@@ -17,14 +18,15 @@ public class Player : MonoBehaviour
         playerManager = GetComponent<PlayerManager>();
         defeatUI = playerManager.GetUI();
         defeatUI.SetActive(false);
-        healthBar.maxValue = health;
-        healthBar.value = health;
+        healthBar.maxValue = maxHealth;
+        healthBar.value = maxHealth;
+        currenthealth = maxHealth;
     }
     public void Damage(int damage)
     {
-        health -= damage;
-        healthBar.value = health;
-        if (health <= 0)
+        currenthealth -= damage;
+        healthBar.value = currenthealth;
+        if (currenthealth <= 0)
         {
             healthBar.value = 0;
             defeatUI.SetActive(true);
@@ -38,5 +40,11 @@ public class Player : MonoBehaviour
     {
         yield return new WaitForSeconds(InvilFrames);
         playerHitbox.enabled = true;
+    }
+
+    public void Heal()
+    {
+        currenthealth = maxHealth;
+        healthBar.value = currenthealth;
     }
 }

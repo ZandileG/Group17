@@ -17,6 +17,7 @@ public class PlayerMelee : MonoBehaviour
 
     private void Start()
     {
+        manager = FindObjectOfType<PlayerManager>();
         canMelee = true;
         isAttacking = false;
     }
@@ -38,8 +39,6 @@ public class PlayerMelee : MonoBehaviour
             isAttacking = true;
             animator.SetTrigger("Melee");
 
-            //StartCoroutine(StartUp());
-            //StartCoroutine(StopMelee());
             StartCoroutine(MeleeDelay());
         }
     }
@@ -50,7 +49,7 @@ public class PlayerMelee : MonoBehaviour
 
         foreach (Collider2D enemy in hitEnemies)
         {
-            Debug.Log("Hit" + enemy.name);
+            //Debug.Log("Hit" + enemy.name);
             enemy.GetComponent<Enemy>().Damage(meleeDamage);
         }
     }

@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 716660625280220938}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.25, y: -0, z: 0}
+  m_LocalPosition: {x: 1, y: 0, z: 0}
   m_LocalScale: {x: 1.5, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -109,7 +109,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5766140036231316848}
   m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: -0.75, y: -0.25, z: 0}
+  m_LocalPosition: {x: 0, y: -0.25, z: 0}
   m_LocalScale: {x: 1, y: 0.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -217,7 +217,6 @@ MonoBehaviour:
   manager: {fileID: 0}
   bullet: {fileID: 7762108164362330406, guid: 6fb7229ab515ca14b95dbc40abf11c36, type: 3}
   barrel: {fileID: 716660625280220938}
-  aim: {fileID: 0}
   loadedProjectile: {fileID: 7762108164362330406, guid: 6fb7229ab515ca14b95dbc40abf11c36, type: 3}
   reloadIndicator: {fileID: 0}
   ammoDisplay: {fileID: 0}

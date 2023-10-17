@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7405534903430233231}
   - component: {fileID: 5710999331149446548}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Square
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -96,7 +96,7 @@ GameObject:
   - component: {fileID: 1118788074454342953}
   - component: {fileID: 6217112263874807989}
   - component: {fileID: 5514815249277331598}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: SMGBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -153,6 +153,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destroyTime: 5
+  canPierce: 0
 --- !u!61 &5514815249277331598
 BoxCollider2D:
   m_ObjectHideFlags: 0

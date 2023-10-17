@@ -13,6 +13,7 @@ public class GameController : MonoBehaviour
     private int weaponChoice = 0;
     private int currentLevel;
     private int[] waveCount = new int[5] { 2, 2, 3, 3, 5 };
+    private int villainOpinion;
     //Container for how many enemies per level
     //Declared in the format of: level, wave, enemy count
     //Enemy count is formated as Tokoloshe Count, Grootslang Count, Ga-Gorib Count
@@ -54,6 +55,7 @@ public class GameController : MonoBehaviour
     {
         DontDestroyOnLoad(this.gameObject);
 
+        villainOpinion = 0;
         for (int i = 0; i < 5; i++)
         {
             playerWeapons[0, i] = bowWeapons[i];
@@ -64,6 +66,11 @@ public class GameController : MonoBehaviour
         }
         currentLevel = 0;
 
+    }
+
+    public int GetWeaponChoiceValue()
+    {
+        return weaponChoice;
     }
 
     private void Start()
@@ -105,10 +112,25 @@ public class GameController : MonoBehaviour
         currentLevel++;
     }
 
+    public void SetWeaponChoice(int value)
+    {
+        weaponChoice = value;
+    }
+
+    public void ModifyVillainOpinion(int value)
+    {
+        villainOpinion += value;
+    }
     private void FindLevelManager()
     {
         currentLevelManager = FindObjectOfType<LevelManager>();
     }
-    
+
+    public void ResetGame()
+    {
+        villainOpinion = 0;
+        currentLevel = 0;
+        weaponChoice = 0;
+    }
 
 }
