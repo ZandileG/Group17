@@ -90,6 +90,11 @@ public class PlayerMovement : MonoBehaviour
         StartCoroutine(RollDelay());
     }
 
+    public bool GetIsRolling()
+    {
+        return isRolling;
+    }
+
     IEnumerator SprintDelay()
     {
         yield return new WaitForSeconds(0.5f);

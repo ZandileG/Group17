@@ -4,11 +4,10 @@ using UnityEngine;
 
 public class PlayerMelee : MonoBehaviour
 {
+    [SerializeField] private PlayerManager manager;
     [SerializeField] private Animator animator;
     [SerializeField] private int meleeDamage = 1;
     [SerializeField] private float meleeRange = 0.5f;
-    [SerializeField] private float startUpDelay = 0.01f;
-    [SerializeField] private float hitDuration = 5f;
     [SerializeField] private Transform meleePoint;
     [SerializeField] private LayerMask enemyLayer;
     [SerializeField] private float meleeCooldown = 1f;
@@ -33,9 +32,10 @@ public class PlayerMelee : MonoBehaviour
 
     private void Melee()
     {
-        if (canMelee)
+        if (canMelee && !manager.GetIsShooting())
         {
             canMelee = false;
+            isAttacking = true;
             animator.SetTrigger("Melee");
 
             //StartCoroutine(StartUp());
@@ -56,25 +56,16 @@ public class PlayerMelee : MonoBehaviour
     }
 
 
-    IEnumerator StartUp()
-    {
-        yield return new WaitForSeconds(startUpDelay);
-        Debug.Log("Start");
-        isAttacking = true;
-    }
-
-
-    IEnumerator StopMelee()
-    {
-        yield return new WaitForSeconds(hitDuration);
-        Debug.Log("End");
-        isAttacking = false;
-    }
-
     IEnumerator MeleeDelay()
     {
         yield return new WaitForSeconds(meleeCooldown);
         canMelee = true;
+
+    }
+
+    public void ResetMelee()
+    {
+        isAttacking = false;
     }
 
     private void OnDrawGizmosSelected()
@@ -83,5 +74,10 @@ public class PlayerMelee : MonoBehaviour
         Gizmos.DrawSphere(meleePoint.position, meleeRange);        
     }
 
-    
+    public bool GetIsMeleeing()
+    {
+        return isAttacking;
+    }
+
+
 }

@@ -7,6 +7,7 @@ using UnityEngine.UI;
 
 public class PlayerWeapon : MonoBehaviour
 {
+    [SerializeField] private PlayerManager manager;
     [SerializeField] private GameObject bullet;
     [SerializeField] private GameObject barrel;
     [SerializeField] private GameObject aim;
@@ -47,7 +48,7 @@ public class PlayerWeapon : MonoBehaviour
         mousePos = playerCam.ScreenToWorldPoint(Input.mousePosition);
 
         Vector3 weaponRotation = mousePos - transform.position;
-        if (hasChargeTime && canFire)
+        if (hasChargeTime && canFire && !manager.GetIsMeleeing() && !manager.GetIsRolling())
         {
             if (Input.GetKey(fireKey) && isCharged)
             {
@@ -71,7 +72,7 @@ public class PlayerWeapon : MonoBehaviour
 
 
         }
-        if (Input.GetKey(fireKey) && !hasChargeTime)
+        if (Input.GetKey(fireKey) && !hasChargeTime && !manager.GetIsMeleeing() && !manager.GetIsRolling())
         {
             currentCharge = 1f;
             Fire(weaponRotation);
@@ -150,6 +151,10 @@ public class PlayerWeapon : MonoBehaviour
         }
     }
 
+    public bool GetIsShooting()
+    {
+        return !canFire;
+    }
     public float GetForce()
     {
         return shotForce;
