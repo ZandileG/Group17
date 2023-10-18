@@ -35,7 +35,7 @@ public class HealthPack : MonoBehaviour
 
     private void HealTimer()
     {
-        if (playerInRange)
+        if (playerInRange && player.GetComponent<Player>().DoesPlayerNeedHealing())
         {
             timerDisplay.SetActive(true);
             if (healthTimer == maxTime)

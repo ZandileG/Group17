@@ -47,4 +47,9 @@ public class Player : MonoBehaviour
         currenthealth = maxHealth;
         healthBar.value = currenthealth;
     }
+
+    public bool DoesPlayerNeedHealing()
+    {
+        return (currenthealth < maxHealth);
+    }
 }

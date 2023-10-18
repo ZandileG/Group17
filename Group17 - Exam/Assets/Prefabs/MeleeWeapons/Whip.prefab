@@ -90,7 +90,7 @@ MonoBehaviour:
   enemyLayer:
     serializedVersion: 2
     m_Bits: 64
-  meleeCooldown: 1
+  meleeCooldown: 0.75
 --- !u!95 &453649456412893407
 Animator:
   serializedVersion: 5

@@ -245,7 +245,7 @@ MonoBehaviour:
   enemyLayer:
     serializedVersion: 2
     m_Bits: 64
-  meleeCooldown: 1
+  meleeCooldown: 0.5
 --- !u!114 &-8575882837077079315
 MonoBehaviour:
   m_ObjectHideFlags: 0

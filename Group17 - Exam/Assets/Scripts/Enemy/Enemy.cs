@@ -9,7 +9,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] private int health;
     [SerializeField] private int attackDamage;
     [SerializeField] private Slider healthDisplay;
-    private LevelManager levelManager;
+    [SerializeField] private LevelManager levelManager;
     // Start is called before the first frame update
     
     private void Start()
@@ -27,6 +27,7 @@ public class Enemy : MonoBehaviour
     private void Kill()
     {
         levelManager.KillEnemy();
+        Debug.Log("Killed");
         Destroy(gameObject);
     }
 

@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 7494742154546924649}
   - component: {fileID: 263676113539280719}
   m_Layer: 0
-  m_Name: Shotgun
+  m_Name: Shotgun-T3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -138,14 +138,14 @@ MonoBehaviour:
   ammoDisplay: {fileID: 0}
   damage: 4
   shotDelay: 1
-  shotForce: 40
-  fireCount: 5
+  shotForce: 120
+  fireCount: 8
   fireSpread: 2
   hasChargeTime: 0
   chargeRate: 0
-  reloadTime: 0.8
+  reloadTime: 0.5
   ammoCount: 2
-  weaponName: Shotgun
+  weaponName: AirGun
 --- !u!1 &7557431416883811876
 GameObject:
   m_ObjectHideFlags: 0

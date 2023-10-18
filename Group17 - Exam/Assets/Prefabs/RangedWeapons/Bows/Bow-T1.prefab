@@ -179,7 +179,7 @@ GameObject:
   - component: {fileID: 3418116403904289814}
   - component: {fileID: 4464417781267639724}
   m_Layer: 0
-  m_Name: Bow
+  m_Name: Bow-T1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -223,14 +223,14 @@ MonoBehaviour:
   loadedProjectile: {fileID: 1026847640556373292}
   reloadIndicator: {fileID: 0}
   ammoDisplay: {fileID: 0}
-  damage: 2
+  damage: 3
   shotDelay: 1
   shotForce: 50
   fireCount: 1
   fireSpread: 0
   hasChargeTime: 1
-  chargeRate: 0.1
-  reloadTime: 1
+  chargeRate: 0.01
+  reloadTime: 0.5
   ammoCount: 1
   weaponName: Bow
 --- !u!1 &3947721736604572181

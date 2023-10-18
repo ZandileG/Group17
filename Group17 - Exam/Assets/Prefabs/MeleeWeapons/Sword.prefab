@@ -239,13 +239,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   manager: {fileID: 0}
   animator: {fileID: 1611680099143728557}
-  meleeDamage: 1
+  meleeDamage: 5
   meleeRange: 0.3
   meleePoint: {fileID: 2523765029327712540}
   enemyLayer:
     serializedVersion: 2
     m_Bits: 64
-  meleeCooldown: 0.5
+  meleeCooldown: 1
 --- !u!114 &-8575882837077079315
 MonoBehaviour:
   m_ObjectHideFlags: 0
