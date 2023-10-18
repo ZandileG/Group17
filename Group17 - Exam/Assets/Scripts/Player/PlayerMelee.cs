@@ -13,6 +13,7 @@ public class PlayerMelee : MonoBehaviour
     [SerializeField] private float meleeCooldown = 1f;
     private bool isAttacking;
     private bool canMelee;
+    private bool hasHit;
     private KeyCode meleeKey = KeyCode.Mouse1;
 
     private void Start()
@@ -20,6 +21,7 @@ public class PlayerMelee : MonoBehaviour
         manager = FindObjectOfType<PlayerManager>();
         canMelee = true;
         isAttacking = false;
+        hasHit = false;
     }
 
     private void Update()
@@ -27,6 +29,7 @@ public class PlayerMelee : MonoBehaviour
 
         if (Input.GetKey(meleeKey))
         {
+
             Melee();
         }
     }
@@ -37,6 +40,7 @@ public class PlayerMelee : MonoBehaviour
         {
             canMelee = false;
             isAttacking = true;
+            hasHit = true;
             animator.SetTrigger("Melee");
 
             StartCoroutine(MeleeDelay());
@@ -50,15 +54,18 @@ public class PlayerMelee : MonoBehaviour
         foreach (Collider2D enemy in hitEnemies)
         {
             //Debug.Log("Hit" + enemy.name);
-
-            if (enemy.GetComponent<Enemy>() != null)
+            if (hasHit)
             {
-                //Debug.Log("Hit");
-                enemy.GetComponent<Enemy>().Damage(meleeDamage);
-            }
-            else if (enemy.GetComponentInParent<Enemy>() != null)
-            {
-                enemy.GetComponentInParent<Enemy>().Damage(meleeDamage);
+                if (enemy.GetComponent<Enemy>() != null)
+                {
+                    //Debug.Log("Hit");
+                    enemy.GetComponent<Enemy>().Damage(meleeDamage);
+                }
+                else if (enemy.GetComponentInParent<Enemy>() != null)
+                {
+                    enemy.GetComponentInParent<Enemy>().Damage(meleeDamage);
+                }
+                hasHit = false;
             }
         }
     }

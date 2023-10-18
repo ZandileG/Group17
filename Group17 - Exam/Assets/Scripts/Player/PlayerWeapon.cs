@@ -25,7 +25,7 @@ public class PlayerWeapon : MonoBehaviour
     [SerializeField] private string weaponName;
 
     private Camera playerCam;
-    private KeyCode fireKey = KeyCode.Mouse0;
+    private const KeyCode fireKey = KeyCode.Mouse0;
     private bool canFire, isCharged;
     private Vector3 mousePos;
     private float randomSpread;
@@ -82,10 +82,6 @@ public class PlayerWeapon : MonoBehaviour
         }
     }
 
-    private void FixedUpdate()
-    {
-
-    }
 
     public void Fire(Vector3 playerAim)
     {
@@ -108,10 +104,10 @@ public class PlayerWeapon : MonoBehaviour
                 randomSpread = Random.Range(-1 * fireSpread, fireSpread);
                 //Debug.Log(playerAim);
                 Quaternion rotation = Quaternion.Euler(transform.eulerAngles.x, transform.eulerAngles.y, transform.eulerAngles.z + randomSpread);
-                Vector3 position = new Vector3(barrel.transform.position.x, barrel.transform.position.y, barrel.transform.position.z);
+                Vector3 position =  barrel.transform.position;
                 GameObject projectile = Instantiate(bullet, position, rotation);
                 projectile.GetComponent<Projectile>().SetDamage(damage);
-                projectile.GetComponent<Projectile>().Fire(new Vector2(playerAim.x + randomSpread, playerAim.y + randomSpread).normalized * shotForce * currentCharge);
+                projectile.GetComponent<Projectile>().Fire(new Vector2(playerAim.x + randomSpread, playerAim.y + randomSpread).normalized * (shotForce * currentCharge));
             }
             currentCharge = 0;
             //Debug.Log("Shot");

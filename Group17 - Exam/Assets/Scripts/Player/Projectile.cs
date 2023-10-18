@@ -6,10 +6,12 @@ public class Projectile : MonoBehaviour
 {
     [SerializeField] private int destroyTime = 5;
     [SerializeField] private bool canPierce = false;
+    private bool hasHit;
     private int damage = 0;
 
     void Start()
     {
+        hasHit = false;
         StartCoroutine(DestroySelf());
     }
 
@@ -38,19 +40,25 @@ public class Projectile : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.TryGetComponent<Enemy>(out Enemy enemy))
+        if (!hasHit || canPierce)
         {
-            //Debug.Log("Hit");
-            enemy.Damage(damage);
-            if (!canPierce)
-                Destroy(gameObject);
-        }
-        else if (other.GetComponentInParent<Enemy>() != null)
-        {
-            Enemy _enemy = other.GetComponentInParent<Enemy>();
-            _enemy.Damage(damage);
-            if (!canPierce)
-                Destroy(gameObject);
+            if (other.TryGetComponent<Enemy>(out Enemy enemy))
+            {
+                //Debug.Log("Hit");
+                enemy.Damage(damage);
+                hasHit = true;
+                if (!canPierce)
+                    Destroy(gameObject);
+
+            }
+            else if (other.GetComponentInParent<Enemy>() != null)
+            {
+                Enemy _enemy = other.GetComponentInParent<Enemy>();
+                _enemy.Damage(damage);
+                hasHit = true;
+                if (!canPierce)
+                    Destroy(gameObject);
+            }
         }
     }
 

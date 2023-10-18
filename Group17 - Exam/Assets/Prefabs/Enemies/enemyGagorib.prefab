@@ -984,7 +984,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2614943313457634060}
   - component: {fileID: 393147621580954393}
-  - component: {fileID: 4585760418769480907}
   - component: {fileID: 2301467070491532940}
   - component: {fileID: 1749906594772905491}
   - component: {fileID: 7502501559913564722}
@@ -1030,32 +1029,6 @@ MonoBehaviour:
   attackDamage: 2
   healthDisplay: {fileID: 6360766223663141319}
   levelManager: {fileID: 0}
---- !u!61 &4585760418769480907
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5757111448362983488}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
 --- !u!95 &2301467070491532940
 Animator:
   serializedVersion: 5

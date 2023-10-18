@@ -28,10 +28,6 @@ public class EnemyGaGorib : MonoBehaviour
         }
     }
 
-    private void Update()
-    {
-    }
-
     private void FixedUpdate()
     {
         playerMelee = Physics2D.OverlapCircle(transform.position, meleeAgroRange, playerLayer);
