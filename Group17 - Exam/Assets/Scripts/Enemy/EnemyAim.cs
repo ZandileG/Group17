@@ -13,11 +13,11 @@ public class EnemyAim : MonoBehaviour
         if (playerInRange)
         {
             Vector3 playerPosition = playerRanged.collider.GetComponent<Transform>().transform.position;
-            Quaternion rotation = Quaternion.LookRotation(playerPosition - transform.position, transform.TransformDirection(Vector3.up));
-            transform.rotation = new Quaternion(0,0,rotation.z,rotation.w);
-            //Debug.Log(playerPosition);
-            Debug.Log(rotation);
-            //Debug.Log(transform.rotation);
+            Vector3 rotation = playerPosition - transform.position;
+
+            float rotZ = Mathf.Atan2(rotation.y, rotation.x) * Mathf.Rad2Deg;
+
+            transform.rotation = Quaternion.Euler(0, 0, rotZ);
         }
     }
     private void FixedUpdate()

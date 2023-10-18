@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7453661538290550313}
   - component: {fileID: 6206477860171844236}
   - component: {fileID: 7763921996088507869}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -122,7 +122,7 @@ GameObject:
   - component: {fileID: 115462690253887788}
   - component: {fileID: 4096297852746924392}
   - component: {fileID: 7056727378420721493}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: legL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -403,7 +403,7 @@ GameObject:
   - component: {fileID: 4713763187199327231}
   - component: {fileID: 5764508005857415494}
   - component: {fileID: 2248887513508191548}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: armL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -590,7 +590,7 @@ GameObject:
   - component: {fileID: 2315982917770354859}
   - component: {fileID: 5265685795557430136}
   - component: {fileID: 4778982433368817579}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: armR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -699,7 +699,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4498906195642822781}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: attackbox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -869,7 +869,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4046391482419756085}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Holder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -989,7 +989,8 @@ GameObject:
   - component: {fileID: 1749906594772905491}
   - component: {fileID: 7502501559913564722}
   - component: {fileID: 8554141845996704715}
-  m_Layer: 0
+  - component: {fileID: -6038454748420221781}
+  m_Layer: 6
   m_Name: enemyGagorib
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1089,7 +1090,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animationHit:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: -6038454748420221781}
+        m_TargetAssemblyTypeName: EnemyGaGorib, Assembly-CSharp
+        m_MethodName: MeleeAttack
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   animationHit2:
     m_PersistentCalls:
       m_Calls: []
@@ -1130,6 +1143,28 @@ MonoBehaviour:
   playerLayer:
     serializedVersion: 2
     m_Bits: 8
+--- !u!114 &-6038454748420221781
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5757111448362983488}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89e2b52208b63e44899c579efb758dd6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackPoint: {fileID: 4498906195642822781}
+  head: {fileID: 876639625250899613}
+  animator: {fileID: 2301467070491532940}
+  attackRange: 1.5
+  meleeAgroRange: 3
+  attackCooldown: 1
+  attackMeleeDamage: 6
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 8
 --- !u!1 &7853365858719922179
 GameObject:
   m_ObjectHideFlags: 0
@@ -1141,7 +1176,7 @@ GameObject:
   - component: {fileID: 6493847634296107778}
   - component: {fileID: 8203815847735091028}
   - component: {fileID: 1633923769033753243}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: legR
   m_TagString: Untagged
   m_Icon: {fileID: 0}

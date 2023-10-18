@@ -24,7 +24,7 @@ public class EnemyGrootslang : MonoBehaviour
     private void Start()
     {
         playerInRange = false;
-        InvokeRepeating("EnemyAttack", 10f, 5f);
+        InvokeRepeating("EnemyAttack", 6f, 5f);
     }
 
     private void EnemyAttack()
@@ -44,9 +44,12 @@ public class EnemyGrootslang : MonoBehaviour
         if (playerInRange)
         {
             Vector3 playerPosition = playerRanged.GetComponent<Transform>().transform.position;
-            Quaternion rotation = Quaternion.LookRotation(playerPosition - transform.position, transform.TransformDirection(Vector3.up));
-            aim = new (rotation.x,rotation.y, rotation.z);
-            attackPoint.rotation = new Quaternion(0, 0, rotation.z, rotation.w);
+            Vector3 rotation = playerPosition - transform.position;
+
+            float rotZ = Mathf.Atan2(rotation.y, rotation.x) * Mathf.Rad2Deg;
+
+            attackPoint.rotation = Quaternion.Euler(0, 0, rotZ);
+            aim = new (rotation.x,rotation.y,0);
         }
     }
 

@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 8473719682963893527}
   - component: {fileID: 1118788074454342953}
-  - component: {fileID: 6217112263874807989}
   - component: {fileID: 5514815249277331598}
+  - component: {fileID: 1443140550474941775}
   m_Layer: 9
   m_Name: Spit
   m_TagString: Untagged
@@ -56,20 +56,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!114 &6217112263874807989
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2067738014751128648}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 420c0b1bbf389eb448dc96e57891f782, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  destroyTime: 5
-  canPierce: 0
 --- !u!61 &5514815249277331598
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -96,6 +82,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.2, y: 0.05}
   m_EdgeRadius: 0
+--- !u!114 &1443140550474941775
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2067738014751128648}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86c82eeedfd2cf9449b5e29f11ae2a3f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  destroyTime: 5
 --- !u!1 &3033721195210855205
 GameObject:
   m_ObjectHideFlags: 0

@@ -15,7 +15,8 @@ GameObject:
   - component: {fileID: 174798159137017462}
   - component: {fileID: 9030451759932939207}
   - component: {fileID: 2000496354325581115}
-  m_Layer: 0
+  - component: {fileID: 4359326397312019295}
+  m_Layer: 6
   m_Name: enemyTokoloshe
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -115,7 +116,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animationHit:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4359326397312019295}
+        m_TargetAssemblyTypeName: EnemyTokoloshe, Assembly-CSharp
+        m_MethodName: MeleeAttack
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   animationHit2:
     m_PersistentCalls:
       m_Calls: []
@@ -153,6 +166,28 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rangedAgroRange: 20
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 8
+--- !u!114 &4359326397312019295
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 678271468500566463}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b33e82672ae923e47a6340e04419ad09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackPoint: {fileID: 8690344568961330929}
+  head: {fileID: 8185851037391787939}
+  animator: {fileID: 8463321434498321023}
+  attackRange: 0.7
+  meleeAgroRange: 1
+  attackCooldown: 1
+  attackMeleeDamage: 1
   playerLayer:
     serializedVersion: 2
     m_Bits: 8
@@ -202,7 +237,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5907848490148484180}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Holder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -240,7 +275,7 @@ GameObject:
   - component: {fileID: 2874873583063787273}
   - component: {fileID: 2286586972974386277}
   - component: {fileID: 3704656685667202317}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: armR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -694,7 +729,7 @@ GameObject:
   - component: {fileID: 6440612727952437158}
   - component: {fileID: 1626987706814024721}
   - component: {fileID: 4862088098512938903}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: armL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -997,7 +1032,7 @@ GameObject:
   - component: {fileID: 1924096881505107483}
   - component: {fileID: 7010654480028104606}
   - component: {fileID: 5027062442830034053}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1106,7 +1141,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8690344568961330929}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: attackBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1121,7 +1156,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8188182426244426136}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.4000001, z: 0}
+  m_LocalPosition: {x: 0, y: 0.455, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

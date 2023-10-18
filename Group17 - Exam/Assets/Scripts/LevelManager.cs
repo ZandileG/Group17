@@ -89,8 +89,8 @@ public class LevelManager : MonoBehaviour
             for (int j  = 0; j < enemyCount; j++)
             {
                 totalEnemyCount++;
-                float randomOffsetX = Random.Range(-2, 2);
-                float randomOffsetY = Random.Range(-2, 2);
+                float randomOffsetX = Random.Range(-5, 5);
+                float randomOffsetY = Random.Range(-5, 5);
                 Vector3 randomOffsets = new Vector3(randomOffsetX, randomOffsetY, 0);
                 int randomPos = Random.Range(0, spawnPoints.Length);
 
