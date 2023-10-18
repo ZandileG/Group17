@@ -94,7 +94,7 @@ public class LevelManager : MonoBehaviour
                 Vector3 randomOffsets = new Vector3(randomOffsetX, randomOffsetY, 0);
                 int randomPos = Random.Range(0, spawnPoints.Length);
 
-                Instantiate(enemyTypes[i], spawnPoints[randomPos].transform.position + randomOffsets, spawnPoints[randomPos].transform.rotation);
+                Instantiate(enemyTypes[i], spawnPoints[randomPos].transform.position + randomOffsets, Quaternion.identity);
             }
         }
     }

@@ -218,7 +218,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   manager: {fileID: 0}
-  bullet: {fileID: 8710447600365936610, guid: 6f88c6dd4e2d33b40b79e70cff4c9940, type: 3}
+  bullet: {fileID: 640331111634075228, guid: e3864f511e5d3ec438b2be6c4797d362, type: 3}
   barrel: {fileID: 762328171486425017}
   loadedProjectile: {fileID: 1026847640556373292}
   reloadIndicator: {fileID: 0}

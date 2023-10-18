@@ -50,7 +50,16 @@ public class PlayerMelee : MonoBehaviour
         foreach (Collider2D enemy in hitEnemies)
         {
             //Debug.Log("Hit" + enemy.name);
-            enemy.GetComponent<Enemy>().Damage(meleeDamage);
+
+            if (enemy.GetComponent<Enemy>() != null)
+            {
+                //Debug.Log("Hit");
+                enemy.GetComponent<Enemy>().Damage(meleeDamage);
+            }
+            else if (enemy.GetComponentInParent<Enemy>() != null)
+            {
+                enemy.GetComponentInParent<Enemy>().Damage(meleeDamage);
+            }
         }
     }
 

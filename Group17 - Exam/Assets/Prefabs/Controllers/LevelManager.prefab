@@ -52,9 +52,9 @@ MonoBehaviour:
   playerManager: {fileID: 0}
   gameController: {fileID: 0}
   enemyTypes:
-  - {fileID: 2150571998121776974, guid: 768c4a6aea9ad154299eef94b8b04429, type: 3}
-  - {fileID: 7711236847281004473, guid: 6379637e661088c45a9a1c09f83f241b, type: 3}
-  - {fileID: 1506999945774357986, guid: 81076035c26a05844922da1f4c2d5b7d, type: 3}
+  - {fileID: 2051872698953329287, guid: 4ae810f02da3abb4d9e6ddcf874dc6f4, type: 3}
+  - {fileID: 7333111064882806037, guid: 241ab5424306cae4fba290a90a8ae2c2, type: 3}
+  - {fileID: 393147621580954393, guid: f4ca889bd298f4c4582fd6d37bc0127f, type: 3}
   victoryUI: {fileID: 6378384543556087797}
   defeatUI: {fileID: 4040510281971877005}
   choiceUI: {fileID: 1562047022231081842}
@@ -64,6 +64,7 @@ MonoBehaviour:
   level: 0
   waveDelay: 5
   isFirstLevel: 0
+  spawnPoints: []
 --- !u!114 &8013844533511592686
 MonoBehaviour:
   m_ObjectHideFlags: 0

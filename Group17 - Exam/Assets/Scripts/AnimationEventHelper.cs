@@ -5,10 +5,15 @@ using UnityEngine.Events;
 
 public class AnimationEventHelper : MonoBehaviour
 {
-    public UnityEvent animationHit;
+    public UnityEvent animationHit, animationHit2;
 
     public void TriggerAttack()
     {
         animationHit?.Invoke();
+    }
+
+    public void TiggerAttack2()
+    {
+        animationHit2?.Invoke();
     }
 }

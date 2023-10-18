@@ -2,10 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Projectile : MonoBehaviour
+public class EnemyProjectile : MonoBehaviour
 {
     [SerializeField] private int destroyTime = 5;
-    [SerializeField] private bool canPierce = false;
     private int damage = 0;
 
     void Start()
@@ -38,22 +37,12 @@ public class Projectile : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.TryGetComponent<Enemy>(out Enemy enemy))
+        if (other.TryGetComponent<Player>(out Player player))
         {
             //Debug.Log("Hit");
-            enemy.Damage(damage);
-            if (!canPierce)
-                Destroy(gameObject);
+            player.Damage(damage);
+            Destroy(gameObject);
         }
-        else if (other.GetComponentInParent<Enemy>() != null)
-        {
-            Enemy _enemy = other.GetComponentInParent<Enemy>();
-            _enemy.Damage(damage);
-            if (!canPierce)
-                Destroy(gameObject);
-        }
+
     }
-
-
 }
-
