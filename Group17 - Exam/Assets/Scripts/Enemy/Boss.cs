@@ -61,7 +61,7 @@ public class Boss : MonoBehaviour
                 break;
         }
         */
-        animator.SetTrigger("Spin");
+        animator.SetTrigger("Homing");
     }
 
     public void dashAttack()
@@ -71,18 +71,31 @@ public class Boss : MonoBehaviour
     public void spinAttack()
     {                   
         Quaternion rotation = Quaternion.Euler(transform.eulerAngles.x, transform.eulerAngles.y, transform.eulerAngles.z);
-        Vector3 position = transform.position;
-        for (int i = 0; i < 360; i+=45)
+        for (int i = -1; i <= 1; i++)
         {
-            GameObject projectile = Instantiate(normalProjectile, position, rotation);
-            projectile.GetComponent<EnemyProjectile>().SetDamage(rangedDamage);
-            projectile.GetComponent<EnemyProjectile>().Fire(new Vector2(i, i) * shotForce);
+            for (int n = -1; n <= 1; n++)
+            {
+                Vector3 position = transform.position;
+                GameObject projectile = Instantiate(normalProjectile, position, rotation);
+                projectile.GetComponent<EnemyProjectile>().SetDamage(rangedDamage);
+                projectile.GetComponent<EnemyProjectile>().Fire(new Vector2(i, n) * shotForce);
+            }
         }
 
     }
     public void waveAttack()
     {
-
+        Quaternion rotation = Quaternion.Euler(transform.eulerAngles.x, transform.eulerAngles.y, transform.eulerAngles.z);
+        for (int i = 0; i <= 1; i++)
+        {
+            for (int n = 0; n <= 1; n++)
+            {
+                Vector3 position = transform.position;
+                GameObject projectile = Instantiate(normalProjectile, position, rotation);
+                projectile.GetComponent<EnemyProjectile>().SetDamage(rangedDamage);
+                projectile.GetComponent<EnemyProjectile>().Fire(new Vector2(i, n) * shotForce);
+            }
+        }
     }
     public void sprayAttack()
     {
@@ -90,11 +103,21 @@ public class Boss : MonoBehaviour
     }
     private void burstAttack()
     {
+        Quaternion rotation = Quaternion.Euler(transform.eulerAngles.x, transform.eulerAngles.y, transform.eulerAngles.z);
+        for (int i = -1; i <= 1; i++)
+        {
+            Vector3 position = transform.position;
+            GameObject projectile = Instantiate(normalProjectile, position, rotation);
+            projectile.GetComponent<EnemyProjectile>().SetDamage(rangedDamage);
+            projectile.GetComponent<EnemyProjectile>().Fire(new Vector2(i, 0) * shotForce);
 
+        }
     }
     public void followAttack()
     {
-
+        Quaternion rotation = Quaternion.Euler(transform.eulerAngles.x, transform.eulerAngles.y, transform.eulerAngles.z);
+        Vector3 position = transform.position;
+        GameObject projectile = Instantiate(followProjectile, position, rotation);
     }
 
 

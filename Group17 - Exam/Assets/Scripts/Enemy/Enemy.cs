@@ -10,10 +10,12 @@ public class Enemy : MonoBehaviour
     [SerializeField] private int attackDamage;
     [SerializeField] private Slider healthDisplay;
     [SerializeField] private LevelManager levelManager;
+    private bool isDead;
     // Start is called before the first frame update
     
     private void Start()
     {
+        isDead = false;
         levelManager = FindObjectOfType<LevelManager>();
         healthDisplay.maxValue = health;
         healthDisplay.value = health;
@@ -26,9 +28,13 @@ public class Enemy : MonoBehaviour
 
     private void Kill()
     {
-        levelManager.KillEnemy();
-        Debug.Log("Killed");
-        Destroy(gameObject);
+        if (!isDead)
+        {
+            isDead = true;
+            levelManager.KillEnemy();
+            Debug.Log("Killed");
+            Destroy(gameObject);
+        }
     }
 
     public void Damage(int damage)

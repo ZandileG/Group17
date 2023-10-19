@@ -422,6 +422,7 @@ GameObject:
   - component: {fileID: 5292338116539905081}
   - component: {fileID: 5253124650227591352}
   - component: {fileID: 1447089938696835681}
+  - component: {fileID: 1557968567148524015}
   m_Layer: 6
   m_Name: enemyGrootslang
   m_TagString: Untagged
@@ -507,7 +508,7 @@ MonoBehaviour:
   prefabProjectile: {fileID: 2067738014751128648, guid: bc34b399c8008d84084d0c374a16a184, type: 3}
   attackRange: 1.5
   meleeAgroRange: 2
-  rangedAgroRange: 7
+  rangedAgroRange: 12
   attackCooldown: 10
   attackMeleeDamage: 5
   attackRangeDamage: 1
@@ -589,7 +590,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 80
-  m_LinearDrag: 0
+  m_LinearDrag: 1
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_Material: {fileID: 0}
@@ -613,6 +614,21 @@ MonoBehaviour:
   playerLayer:
     serializedVersion: 2
     m_Bits: 8
+--- !u!114 &1557968567148524015
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2711965043956593681}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e94fbe79e3ddb9d418cd7110a2beb851, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  selfRb: {fileID: 0}
+  enemyAim: {fileID: 0}
+  movementSpeed: 80
 --- !u!1 &2921356807090671435
 GameObject:
   m_ObjectHideFlags: 0

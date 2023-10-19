@@ -6,6 +6,7 @@ public class EnemyAim : MonoBehaviour
 {
     [SerializeField] private float rangedAgroRange;
     [SerializeField] private LayerMask playerLayer;
+    private Vector2 rotation;
     private RaycastHit2D playerRanged;
     private bool playerInRange;
     private void Update()
@@ -13,7 +14,7 @@ public class EnemyAim : MonoBehaviour
         if (playerInRange)
         {
             Vector3 playerPosition = playerRanged.collider.GetComponent<Transform>().transform.position;
-            Vector3 rotation = playerPosition - transform.position;
+            rotation = playerPosition - transform.position;
 
             float rotZ = Mathf.Atan2(rotation.y, rotation.x) * Mathf.Rad2Deg;
 
@@ -34,5 +35,10 @@ public class EnemyAim : MonoBehaviour
 
         Gizmos.DrawSphere(transform.position, rangedAgroRange);
 
+    }
+
+    public Vector2 GetRotation()
+    {
+        return rotation;
     }
 }

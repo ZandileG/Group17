@@ -137,7 +137,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6398819605490100}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -659,13 +659,13 @@ MonoBehaviour:
   animationAttack6:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6015225959492975099}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
+      - m_Target: {fileID: 5090190659466285627}
+        m_TargetAssemblyTypeName: Boss, Assembly-CSharp
+        m_MethodName: followAttack
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -694,5 +694,5 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   animator: {fileID: 8083694417486066510}
-  normalProjectile: {fileID: 2067738014751128648, guid: bc34b399c8008d84084d0c374a16a184, type: 3}
+  normalProjectile: {fileID: 7950960192133628942, guid: 6b8dc6719ce2d9746a2b502cc17000a1, type: 3}
   followProjectile: {fileID: 4174901378519910109, guid: 3e73c86b44526a249992b3a34a69487c, type: 3}

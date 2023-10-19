@@ -34,14 +34,21 @@ public class BossProjectile : MonoBehaviour
 
             transform.rotation = Quaternion.Euler(0, 0, rotZ);
         }
+        else
+        {
+            
+        }
 
     }
     private void Fire()
     {
-        Vector3 rotation = playerPos.transform.position - transform.position;
-        //GetComponent<Rigidbody2D>().AddForce(velocity);
-        projectileDir = transform.up * rotation.y + transform.right * rotation.x;
-        GetComponent<Rigidbody2D>().AddForce(projectileDir * projectileForce, ForceMode2D.Impulse);
+        if (playerInRange)
+        {
+            Vector3 rotation = playerPos.transform.position - transform.position;
+            //GetComponent<Rigidbody2D>().AddForce(velocity);
+            projectileDir = transform.up * rotation.y + transform.right * rotation.x;
+            GetComponent<Rigidbody2D>().AddForce(projectileDir * projectileForce, ForceMode2D.Impulse);
+        }
     }
 
     IEnumerator DestroySelf()
