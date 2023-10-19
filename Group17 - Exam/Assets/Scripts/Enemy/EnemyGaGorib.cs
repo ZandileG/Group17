@@ -17,7 +17,7 @@ public class EnemyGaGorib : MonoBehaviour
 
     private void Start()
     {
-        InvokeRepeating("EnemyAttack", 0f, 6f);
+        InvokeRepeating("EnemyAttack", 1.0f, 4.0f);
     }
 
     private void EnemyAttack()
@@ -28,7 +28,7 @@ public class EnemyGaGorib : MonoBehaviour
         }
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
         playerMelee = Physics2D.OverlapCircle(transform.position, meleeAgroRange, playerLayer);
         if (playerMelee != null)
@@ -43,7 +43,6 @@ public class EnemyGaGorib : MonoBehaviour
 
         foreach (Collider2D enemy in hitEnemies)
         {
-            //Debug.Log("Hit" + enemy.name);
             enemy.GetComponent<Player>().Damage(attackMeleeDamage);
         }
     }

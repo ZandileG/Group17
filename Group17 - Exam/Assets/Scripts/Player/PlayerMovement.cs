@@ -5,13 +5,13 @@ using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour
 {
+    [SerializeField] Player player;
     [SerializeField] Transform orientation;
     [SerializeField] private float playerWalkSpeed = 5f;
     [SerializeField] private float playerSprintSpeed = 15f;
     [SerializeField] private int playerMaxStamina = 1000;
     [SerializeField] private float playerRollInvilFrames = 0.5f;
     [SerializeField] Slider staminaBar;
-    [SerializeField] private BoxCollider2D playerHitbox;
 
     private int playerStamina;
     private Rigidbody2D playerRB;
@@ -23,6 +23,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Start()
     {
+        player = GetComponent<Player>();
         playerRB = GetComponent<Rigidbody2D>();
         orientation = GetComponent<Transform>();
         playerStamina = playerMaxStamina;
@@ -103,8 +104,7 @@ public class PlayerMovement : MonoBehaviour
 
     IEnumerator RollDelay()
     {
-        if (playerHitbox.enabled)
-            playerHitbox.enabled = false;
+        player.SetInvil(true);
         StartCoroutine(RollInvil());
         yield return new WaitForSeconds(1);
 
@@ -114,7 +114,7 @@ public class PlayerMovement : MonoBehaviour
     IEnumerator RollInvil()
     {
         yield return new WaitForSeconds(playerRollInvilFrames);
-        playerHitbox.enabled = true;
+        player.SetInvil(false);
     }
 
 }

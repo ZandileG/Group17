@@ -24,7 +24,7 @@ public class EnemyGrootslang : MonoBehaviour
     private void Start()
     {
         playerInRange = false;
-        InvokeRepeating("EnemyAttack", 6f, 5f);
+        InvokeRepeating("EnemyAttack", 1.0f, 2.0f);
     }
 
     private void EnemyAttack()
@@ -40,7 +40,16 @@ public class EnemyGrootslang : MonoBehaviour
 
     private void Update()
     {
-        
+        playerRanged = Physics2D.OverlapCircle(transform.position, rangedAgroRange, playerLayer);
+        if (playerRanged != null)
+            playerInRange = true;
+        else
+            playerInRange = false;
+        playerMelee = Physics2D.OverlapCircle(transform.position, meleeAgroRange, playerLayer);
+        if (playerMelee != null)
+            playerInMelee = true;
+        else
+            playerInMelee = false;
         if (playerInRange)
         {
             Vector3 playerPosition = playerRanged.GetComponent<Transform>().transform.position;
@@ -55,16 +64,7 @@ public class EnemyGrootslang : MonoBehaviour
 
     private void FixedUpdate()
     {
-        playerRanged = Physics2D.OverlapCircle(transform.position, rangedAgroRange, playerLayer);
-        if (playerRanged != null)
-            playerInRange = true;
-        else
-            playerInRange = false;
-        playerMelee = Physics2D.OverlapCircle(transform.position, meleeAgroRange, playerLayer);
-        if (playerMelee != null)
-            playerInMelee = true;
-        else
-            playerInMelee = false;
+
     }
 
     public void RangedAttack()

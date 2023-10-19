@@ -17,7 +17,7 @@ public class EnemyTokoloshe : MonoBehaviour
 
     private void Start()
     {
-        InvokeRepeating("EnemyAttack", 0f, 2f);
+        InvokeRepeating("EnemyAttack", 1.0f, 1.0f);
     }
 
     private void EnemyAttack()
@@ -29,10 +29,6 @@ public class EnemyTokoloshe : MonoBehaviour
     }
 
     private void Update()
-    {
-    }
-
-    private void FixedUpdate()
     {
         playerMelee = Physics2D.OverlapCircle(transform.position, meleeAgroRange, playerLayer);
         if (playerMelee != null)

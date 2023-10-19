@@ -9,12 +9,13 @@ public class Player : MonoBehaviour
     [SerializeField] private int currenthealth;
     [SerializeField] private string playerName;
     [SerializeField] Slider healthBar;
-    [SerializeField] private BoxCollider2D playerHitbox;
     [SerializeField] private GameObject defeatUI;
     [SerializeField] private float InvilFrames;
     [SerializeField] private PlayerManager playerManager;
+    private bool isInvil;
     private void Start()
     {
+        isInvil = false;
         playerManager = GetComponent<PlayerManager>();
         defeatUI = playerManager.GetUI();
         defeatUI.SetActive(false);
@@ -24,22 +25,25 @@ public class Player : MonoBehaviour
     }
     public void Damage(int damage)
     {
-        currenthealth -= damage;
-        healthBar.value = currenthealth;
-        if (currenthealth <= 0)
+        if (!isInvil)
         {
-            healthBar.value = 0;
-            defeatUI.SetActive(true);
-            Time.timeScale = 0;
+            currenthealth -= damage;
+            healthBar.value = currenthealth;
+            if (currenthealth <= 0)
+            {
+                healthBar.value = 0;
+                defeatUI.SetActive(true);
+                Time.timeScale = 0;
+            }
+            isInvil = true;
+            StartCoroutine(PlayerInvil());
         }
-        playerHitbox.enabled = false;
-        StartCoroutine(PlayerInvil());
     }
 
     IEnumerator PlayerInvil()
     {
         yield return new WaitForSeconds(InvilFrames);
-        playerHitbox.enabled = true;
+        isInvil = false;
     }
 
     public void Heal()
@@ -48,6 +52,11 @@ public class Player : MonoBehaviour
         healthBar.value = currenthealth;
     }
 
+
+    public void SetInvil(bool state)
+    {
+        isInvil = state;
+    }
     public bool DoesPlayerNeedHealing()
     {
         return (currenthealth < maxHealth);
