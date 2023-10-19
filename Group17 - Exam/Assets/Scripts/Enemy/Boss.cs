@@ -61,7 +61,7 @@ public class Boss : MonoBehaviour
                 break;
         }
         */
-        animator.SetTrigger("Homing");
+        animator.SetTrigger("Spin");
     }
 
     public void dashAttack()
