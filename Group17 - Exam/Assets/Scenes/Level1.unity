@@ -2897,7 +2897,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6398819824497156, guid: 2397c09671f752242a22fa32c97ff018, type: 3}
       propertyPath: m_SortingOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6398819824497215, guid: 2397c09671f752242a22fa32c97ff018, type: 3}
       propertyPath: playerMelee
@@ -2913,11 +2913,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4703987963691681283, guid: 2397c09671f752242a22fa32c97ff018, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 8.5
       objectReference: {fileID: 0}
     - target: {fileID: 4703987963691681283, guid: 2397c09671f752242a22fa32c97ff018, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 3.26
       objectReference: {fileID: 0}
     - target: {fileID: 4703987963691681283, guid: 2397c09671f752242a22fa32c97ff018, type: 3}
       propertyPath: m_LocalPosition.z

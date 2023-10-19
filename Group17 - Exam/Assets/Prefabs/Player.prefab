@@ -979,7 +979,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
-  m_SortingLayerID: 0
+  m_SortingLayerID: -1728379917
   m_SortingOrder: 0
   m_TargetDisplay: 0
 --- !u!114 &6398820488722296
@@ -1102,7 +1102,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1126,13 +1126,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a99982456d342694da6998cfb63d2c96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 0}
   orientation: {fileID: 4703987963691681283}
   playerWalkSpeed: 5
   playerSprintSpeed: 15
   playerMaxStamina: 1000
   playerRollInvilFrames: 0.5
   staminaBar: {fileID: 6398819251922852}
-  playerHitbox: {fileID: 6398819824497153}
 --- !u!50 &6398819824497154
 Rigidbody2D:
   serializedVersion: 4
@@ -1196,7 +1196,6 @@ MonoBehaviour:
   currenthealth: 0
   playerName: Player
   healthBar: {fileID: 6398820359298512}
-  playerHitbox: {fileID: 6398819824497153}
   defeatUI: {fileID: 0}
   InvilFrames: 2
   playerManager: {fileID: 0}

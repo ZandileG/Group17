@@ -37,7 +37,7 @@ public class PlayerManager : MonoBehaviour
     }
     public void SetWeapon(GameObject newWeapon)
     {
-        equipedRangedWeapon = Instantiate(newWeapon, Vector3.zero, Quaternion.identity);
+        equipedRangedWeapon = Instantiate(newWeapon, gameObject.transform.position, gameObject.transform.rotation);
         playerWeapon = equipedRangedWeapon.GetComponent<PlayerWeapon>();
         equipedRangedWeapon.transform.parent = rotatePoint.transform;
         playerAim.SetWeapon(equipedRangedWeapon);
