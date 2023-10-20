@@ -132,11 +132,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 264259949912763289, guid: 0adb35e665cfb8140807c6941664d8e4, type: 3}
       propertyPath: m_Name
-      value: path (3)
+      value: Path (2)
       objectReference: {fileID: 0}
     - target: {fileID: 8073417937487635846, guid: 0adb35e665cfb8140807c6941664d8e4, type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 8073417937487635846, guid: 0adb35e665cfb8140807c6941664d8e4, type: 3}
       propertyPath: m_LocalScale.x
@@ -259,11 +259,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 264259949912763289, guid: 0adb35e665cfb8140807c6941664d8e4, type: 3}
       propertyPath: m_Name
-      value: path (2)
+      value: Path (1)
       objectReference: {fileID: 0}
     - target: {fileID: 8073417937487635846, guid: 0adb35e665cfb8140807c6941664d8e4, type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 8073417937487635846, guid: 0adb35e665cfb8140807c6941664d8e4, type: 3}
       propertyPath: m_LocalScale.x
@@ -715,7 +715,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &777237005
 PrefabInstance:
@@ -1111,7 +1111,7 @@ GameObject:
   - component: {fileID: 913370342}
   - component: {fileID: 913370341}
   m_Layer: 0
-  m_Name: farmhouse
+  m_Name: Farmhouse
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1217,7 +1217,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1000708245
 GameObject:
@@ -1492,7 +1492,7 @@ GameObject:
   - component: {fileID: 1098786878}
   - component: {fileID: 1098786877}
   m_Layer: 0
-  m_Name: tree fence
+  m_Name: TreeFence
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1699,7 +1699,7 @@ Transform:
   - {fileID: 1098786876}
   - {fileID: 1379140685}
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1233933366
 PrefabInstance:
@@ -1710,7 +1710,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4414284365444039603, guid: a5734a3b686f41e47b6b4ae8269dd9cd, type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4414284365444039603, guid: a5734a3b686f41e47b6b4ae8269dd9cd, type: 3}
       propertyPath: m_LocalScale.x
@@ -1832,7 +1832,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1379140684
 GameObject:
@@ -1845,7 +1845,7 @@ GameObject:
   - component: {fileID: 1379140685}
   - component: {fileID: 1379140686}
   m_Layer: 0
-  m_Name: Family tree
+  m_Name: FamilyTree
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1904,7 +1904,7 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 1262059207
+  m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
@@ -2246,7 +2246,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1452434520
 GameObject:
@@ -2277,7 +2277,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1485105802
 GameObject:
@@ -2290,7 +2290,7 @@ GameObject:
   - component: {fileID: 1485105803}
   - component: {fileID: 1485105804}
   m_Layer: 0
-  m_Name: Circle (1)
+  m_Name: 'Circle '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2402,7 +2402,7 @@ Transform:
   - {fileID: 506270203}
   - {fileID: 782425064}
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1566598105
 GameObject:
@@ -2415,7 +2415,7 @@ GameObject:
   - component: {fileID: 1566598107}
   - component: {fileID: 1566598106}
   m_Layer: 0
-  m_Name: ground
+  m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2486,7 +2486,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1635936269
 GameObject:
@@ -2624,11 +2624,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 264259949912763289, guid: 0adb35e665cfb8140807c6941664d8e4, type: 3}
       propertyPath: m_Name
-      value: path (4)
+      value: Path
       objectReference: {fileID: 0}
     - target: {fileID: 8073417937487635846, guid: 0adb35e665cfb8140807c6941664d8e4, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 8073417937487635846, guid: 0adb35e665cfb8140807c6941664d8e4, type: 3}
       propertyPath: m_LocalScale.x
@@ -2754,7 +2754,7 @@ GameObject:
   - component: {fileID: 2036486794}
   - component: {fileID: 2036486793}
   m_Layer: 7
-  m_Name: Crops (1)
+  m_Name: 'Crops '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2866,7 +2866,7 @@ Transform:
   m_Children:
   - {fileID: 1000708246}
   m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &6398818371639392
 PrefabInstance:
