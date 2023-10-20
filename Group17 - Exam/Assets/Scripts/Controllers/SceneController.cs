@@ -26,7 +26,7 @@ public class SceneController : MonoBehaviour
     public void MainMenu()
     {
         gameController.ResetGame();
-        SceneManager.LoadScene("StartScreen");
+        SceneManager.LoadScene("MainMenu");
     }
 
     public void Quit()
