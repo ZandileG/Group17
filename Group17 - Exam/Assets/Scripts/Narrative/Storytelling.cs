@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class Storytelling : MonoBehaviour
 {
-    public Text storyText;
+    public TextMeshProUGUI storyText;
     public string[] storySentences;
     public float textSpeed = 0.1f;
 
