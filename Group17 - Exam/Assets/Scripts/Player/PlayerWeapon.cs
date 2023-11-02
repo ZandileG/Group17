@@ -26,6 +26,7 @@ public class PlayerWeapon : MonoBehaviour
 
     private Camera playerCam;
     private const KeyCode fireKey = KeyCode.Mouse0;
+    private const KeyCode reloadKey = KeyCode.R;
     private bool canFire, isCharged;
     private Vector3 mousePos;
     private float randomSpread;
@@ -48,6 +49,14 @@ public class PlayerWeapon : MonoBehaviour
     private void Update()
     {
         mousePos = playerCam.ScreenToWorldPoint(Input.mousePosition);
+
+        if (canFire && Input.GetKey(reloadKey) && !isCharged)
+        {
+            ammoDisplay.text = "0";
+            canFire = false;
+            reloadIndicator.SetActive(true);
+            StartCoroutine(Reload());
+        }
 
         Vector3 weaponRotation = mousePos - transform.position;
         if (hasChargeTime && canFire && !manager.GetIsMeleeing() && !manager.GetIsRolling())
@@ -133,6 +142,7 @@ public class PlayerWeapon : MonoBehaviour
     IEnumerator Reload()
     {
         yield return new WaitForSeconds(reloadTime);
+        canFire = true;
         currentAmmo = ammoCount;
         reloadIndicator.SetActive(false);
         UpdateAmmo();

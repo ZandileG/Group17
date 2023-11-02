@@ -12,31 +12,60 @@ public class Player : MonoBehaviour
     [SerializeField] private GameObject defeatUI;
     [SerializeField] private float InvilFrames;
     [SerializeField] private PlayerManager playerManager;
+    [SerializeField] private GameObject dummy;   
+    [SerializeField] private int dummyCount;
+    [SerializeField] private bool isDummy = false;
+    private KeyCode dropDummy = KeyCode.Q;
     private bool isInvil;
+
     private void Start()
     {
-        isInvil = false;
-        playerManager = GetComponent<PlayerManager>();
-        defeatUI = playerManager.GetUI();
-        defeatUI.SetActive(false);
-        healthBar.maxValue = maxHealth;
-        healthBar.value = maxHealth;
-        currenthealth = maxHealth;
+        if (!isDummy)
+        {
+            isInvil = false;
+            playerManager = GetComponent<PlayerManager>();
+            defeatUI = playerManager.GetUI();
+            defeatUI.SetActive(false);
+            healthBar.maxValue = maxHealth;
+            healthBar.value = maxHealth;
+            currenthealth = maxHealth;
+        }
+    }
+
+    private void Update()
+    {
+        if (!isDummy)
+        {
+            if (Input.GetKey(dropDummy))
+            {
+
+            }
+        }
     }
     public void Damage(int damage)
     {
-        if (!isInvil)
+        if (!isDummy)
+        {
+            if (!isInvil)
+            {
+                currenthealth -= damage;
+                healthBar.value = currenthealth;
+                if (currenthealth <= 0)
+                {
+                    healthBar.value = 0;
+                    defeatUI.SetActive(true);
+                    Time.timeScale = 0;
+                }
+                isInvil = true;
+                StartCoroutine(PlayerInvil());
+            }
+        } else
         {
             currenthealth -= damage;
-            healthBar.value = currenthealth;
             if (currenthealth <= 0)
             {
-                healthBar.value = 0;
-                defeatUI.SetActive(true);
-                Time.timeScale = 0;
+                Destroy(gameObject);
             }
-            isInvil = true;
-            StartCoroutine(PlayerInvil());
         }
     }
 
@@ -52,6 +81,20 @@ public class Player : MonoBehaviour
         healthBar.value = currenthealth;
     }
 
+    public bool IsDummy()
+    {
+        return isDummy;
+    }
+
+    private void SpawnDummy()
+    {
+
+    }
+
+    public void SetHealth(int newHealth)
+    {
+        maxHealth = newHealth;
+    }
 
     public void SetInvil(bool state)
     {

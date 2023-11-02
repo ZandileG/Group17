@@ -28,6 +28,9 @@ public class HealthPack : MonoBehaviour
     {
         player  = Physics2D.OverlapCircle(transform.position,scanRange,playerLayer);
         if (player != null)
+            if (player.GetComponent<Player>().IsDummy())
+            playerInRange = false;
+        else
             playerInRange = true;
         else
             playerInRange = false;
