@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 757471343388281853}
   - component: {fileID: 8064024818460026427}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1629831053720666772}
   - component: {fileID: 5412209651138284442}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: AR-T1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -155,7 +155,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4439517697638266247}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Barrel
   m_TagString: Untagged
   m_Icon: {fileID: 0}

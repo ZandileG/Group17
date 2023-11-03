@@ -14,7 +14,7 @@ public class PlayerAim : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        playerCam = FindObjectOfType<Camera>();     
+        playerCam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
         gunFacingRight = true;
     }
 

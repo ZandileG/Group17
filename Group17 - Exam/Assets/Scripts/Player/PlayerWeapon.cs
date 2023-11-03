@@ -40,7 +40,7 @@ public class PlayerWeapon : MonoBehaviour
         manager = FindObjectOfType<PlayerManager>();
         reloadIndicator = manager.GetReloadIndicator();
         ammoDisplay = manager.GetAmmoDisplay();
-        playerCam = FindObjectOfType<Camera>();
+        playerCam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
         reloadIndicator.SetActive(false);
         currentAmmo = ammoCount;
         UpdateAmmo();

@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 59213409899971502}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Barrel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41,7 +41,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2479045008678239385}
   - component: {fileID: 5098743345412085411}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -125,7 +125,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7494742154546924649}
   - component: {fileID: 263676113539280719}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Shotgun-T2
   m_TagString: Untagged
   m_Icon: {fileID: 0}

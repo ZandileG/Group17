@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2714348124668479337}
   - component: {fileID: 7208750249647468237}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -96,7 +96,7 @@ GameObject:
   - component: {fileID: 2848338407661898027}
   - component: {fileID: 1118778373856394211}
   - component: {fileID: 1611680099143728557}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: KnuckleDusters
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -202,7 +202,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6395012108726075296}
   - component: {fileID: 2754653602652917948}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -285,7 +285,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2523765029327712540}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: MeleePoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
