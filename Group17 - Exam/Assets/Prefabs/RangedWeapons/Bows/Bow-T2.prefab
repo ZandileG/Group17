@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2928039671283746036}
   - component: {fileID: 3566664357977240368}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3418116403904289814}
   - component: {fileID: 4464417781267639724}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Bow-T2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -156,7 +156,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4575748063498693765}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Barrel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -188,6 +188,10 @@ PrefabInstance:
     - target: {fileID: 2850208795088379505, guid: f55a8ba50b80d7343a9528914681a64c, type: 3}
       propertyPath: m_Name
       value: Arrow
+      objectReference: {fileID: 0}
+    - target: {fileID: 2850208795088379505, guid: f55a8ba50b80d7343a9528914681a64c, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2850208795088379505, guid: f55a8ba50b80d7343a9528914681a64c, type: 3}
       propertyPath: m_IsActive
@@ -236,6 +240,10 @@ PrefabInstance:
     - target: {fileID: 4893844898952982095, guid: f55a8ba50b80d7343a9528914681a64c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8227203093127704020, guid: f55a8ba50b80d7343a9528914681a64c, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f55a8ba50b80d7343a9528914681a64c, type: 3}
