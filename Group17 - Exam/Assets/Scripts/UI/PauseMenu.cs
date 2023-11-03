@@ -2,34 +2,17 @@ using UnityEngine;
 
 public class PauseMenu : MonoBehaviour
 {
-    public GameObject pauseMenuUI;
-
-    private bool isPaused = false;
-
-    private void Start()
-    {
-        pauseMenuUI.SetActive(false);
-    }
+    public GameObject menuScreen;
 
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if (isPaused)
+            // Check if the GameObject is not already active
+            if (!menuScreen.activeSelf)
             {
-
-            }
-            else
-            {
-                PauseGame();
+                menuScreen.SetActive(true);
             }
         }
-    }
-
-    void PauseGame()
-    {
-        isPaused = true;
-        Time.timeScale = 0; // Pause the game
-        pauseMenuUI.SetActive(true);
     }
 }

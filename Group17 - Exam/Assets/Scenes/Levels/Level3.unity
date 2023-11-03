@@ -3358,7 +3358,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1713ebe3cb0f78a4e9cd52ae4e20e694, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pauseMenuUI: {fileID: 425092973}
+  menuScreen: {fileID: 425092973}
 --- !u!114 &1311318000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3695,7 +3695,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1626287965}
   - component: {fileID: 1626287963}
-  - component: {fileID: 1626287964}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -3746,14 +3745,6 @@ Camera:
   m_OcclusionCulling: 0
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!81 &1626287964
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1626287962}
-  m_Enabled: 1
 --- !u!4 &1626287965
 Transform:
   m_ObjectHideFlags: 0
