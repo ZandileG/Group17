@@ -200,6 +200,8 @@ GameObject:
   - component: {fileID: 76097294}
   - component: {fileID: 76097293}
   - component: {fileID: 76097292}
+  - component: {fileID: 76097296}
+  - component: {fileID: 76097297}
   m_Layer: 5
   m_Name: PauseCanvas
   m_TagString: Untagged
@@ -290,6 +292,31 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &76097296
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 76097291}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1713ebe3cb0f78a4e9cd52ae4e20e694, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pauseMenuUI: {fileID: 767528345}
+--- !u!114 &76097297
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 76097291}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 203dd1872e314c248bc9c7a0124a762c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &96444470
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -520,8 +547,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 767528349}
-        m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
+      - m_Target: {fileID: 76097297}
+        m_TargetAssemblyTypeName: EndMenu, Assembly-CSharp
         m_MethodName: Quit
         m_Mode: 1
         m_Arguments:
@@ -669,8 +696,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 767528349}
-        m_TargetAssemblyTypeName: PauseMenu, Assembly-CSharp
+      - m_Target: {fileID: 76097297}
+        m_TargetAssemblyTypeName: EndMenu, Assembly-CSharp
         m_MethodName: Home
         m_Mode: 1
         m_Arguments:
@@ -823,7 +850,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 76097291}
+      - m_Target: {fileID: 767528345}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
         m_Mode: 6
@@ -1247,7 +1274,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: d94e683d4914e3f4a8e29b69a5536473, type: 3}
   m_Color: {r: 0.9811321, g: 0.9811321, b: 0.9811321, a: 1}
   m_FlipX: 0
@@ -1285,7 +1312,6 @@ GameObject:
   - component: {fileID: 767528348}
   - component: {fileID: 767528347}
   - component: {fileID: 767528346}
-  - component: {fileID: 767528349}
   m_Layer: 5
   m_Name: MenuScreen
   m_TagString: Untagged
@@ -1354,18 +1380,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &767528349
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 767528345}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 203dd1872e314c248bc9c7a0124a762c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &777237005
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1841,7 +1855,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: d81e1b678e04f384d82a37a6fdea7967, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -1906,7 +1920,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0.411}
+  m_AnchoredPosition: {x: 1.78, y: -0.36}
   m_SizeDelta: {x: 10, y: 10}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1000708247
@@ -1959,7 +1973,7 @@ Canvas:
   m_Enabled: 1
   serializedVersion: 3
   m_RenderMode: 2
-  m_Camera: {fileID: 0}
+  m_Camera: {fileID: 1066783318}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
@@ -2325,7 +2339,7 @@ PrefabInstance:
     - target: {fileID: 3723202172113746335, guid: 1ee9d8a2ec02d3e40b36357c803d8560, type: 3}
       propertyPath: m_audioClip
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 8300000, guid: 259813388bfe9dc419565df62fa951c6, type: 3}
     - target: {fileID: 3723202172113746339, guid: 1ee9d8a2ec02d3e40b36357c803d8560, type: 3}
       propertyPath: m_Name
       value: SoundController

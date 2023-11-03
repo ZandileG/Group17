@@ -1,22 +1,35 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEditor.SearchService;
 using UnityEngine;
-using UnityEngine.SceneManagement;
-
 
 public class PauseMenu : MonoBehaviour
 {
-    // Start is called before the first frame update
-    public void Home()
-    {
-        SceneManager.LoadScene("MainMenu");
+    public GameObject pauseMenuUI;
 
+    private bool isPaused = false;
+
+    private void Start()
+    {
+        pauseMenuUI.SetActive(false);
     }
 
-    // Update is called once per frame
-    public void Quit ()
+    private void Update()
     {
-        Application.Quit(); 
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (isPaused)
+            {
+
+            }
+            else
+            {
+                PauseGame();
+            }
+        }
+    }
+
+    void PauseGame()
+    {
+        isPaused = true;
+        Time.timeScale = 0; // Pause the game
+        pauseMenuUI.SetActive(true);
     }
 }
