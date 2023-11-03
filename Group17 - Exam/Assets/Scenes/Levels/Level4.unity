@@ -1545,8 +1545,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 361592632}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.022, y: -4.49, z: 0}
-  m_LocalScale: {x: 2.15, y: 2.15, z: 1}
+  m_LocalPosition: {x: 0.022, y: -3.96, z: 0}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 458861815}
@@ -3649,6 +3649,10 @@ PrefabInstance:
     - target: {fileID: 4104192656395143564, guid: 28672f49d400e0745a9f6f48c312521c, type: 3}
       propertyPath: m_Name
       value: KnuckleDusters
+      objectReference: {fileID: 0}
+    - target: {fileID: 4104192656395143564, guid: 28672f49d400e0745a9f6f48c312521c, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5455336229927064757, guid: 28672f49d400e0745a9f6f48c312521c, type: 3}
       propertyPath: m_RootOrder

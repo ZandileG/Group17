@@ -228,6 +228,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1956172153741306901, guid: 9180d581c10731d43b5e53438b96a2c9, type: 3}
+      propertyPath: textChoiceNegative
+      value: NEVER!
+      objectReference: {fileID: 0}
+    - target: {fileID: 1956172153741306901, guid: 9180d581c10731d43b5e53438b96a2c9, type: 3}
+      propertyPath: textChoicePositive
+      value: OKAY...
+      objectReference: {fileID: 0}
+    - target: {fileID: 1956172153741306901, guid: 9180d581c10731d43b5e53438b96a2c9, type: 3}
+      propertyPath: villainResponseNegative
+      value: You're gonna regret that!
+      objectReference: {fileID: 0}
+    - target: {fileID: 1956172153741306901, guid: 9180d581c10731d43b5e53438b96a2c9, type: 3}
+      propertyPath: villainResponsePositive
+      value: Thank you...coward!
+      objectReference: {fileID: 0}
     - target: {fileID: 5270679400207900759, guid: 9180d581c10731d43b5e53438b96a2c9, type: 3}
       propertyPath: m_Name
       value: ConversationScreen
