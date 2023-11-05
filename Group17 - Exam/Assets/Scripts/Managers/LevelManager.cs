@@ -16,6 +16,7 @@ public class LevelManager : MonoBehaviour
     [SerializeField] private int waveDelay = 5;
     [SerializeField] bool isFirstLevel = false;
     [SerializeField] private GameObject[] spawnPoints;
+    private int cropHealth;
     private GameObject inheritWeapon, selfWeapon;
     private int currentLevel, currentWave, waveCount, totalEnemyCount;
     private int displayDelay = 1;
@@ -24,6 +25,7 @@ public class LevelManager : MonoBehaviour
     {
         Time.timeScale = 0;
         totalEnemyCount = 0;
+        cropHealth = 0;
         choiceUI.SetActive(true);
         victoryUI.SetActive(false);
         defeatUI.SetActive(false);
@@ -96,6 +98,20 @@ public class LevelManager : MonoBehaviour
 
                 Instantiate(enemyTypes[i], spawnPoints[randomPos].transform.position + randomOffsets, Quaternion.identity);
             }
+        }
+    }
+
+    public void AddCrop(int health)
+    {
+        cropHealth += health;
+    }
+
+    public void DamageCrop(int damage)
+    {
+        cropHealth -= damage;
+        if (cropHealth <= 0)
+        {
+            Debug.Log("You Lose");
         }
     }
 

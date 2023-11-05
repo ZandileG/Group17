@@ -7,10 +7,14 @@ public class Crops : MonoBehaviour
 {
     [SerializeField] private int health;
     [SerializeField] Slider healthBar;
+    [SerializeField] LevelManager levelManager;
     private void Start()
     {
+        this.GetComponent<Collider2D>().enabled = true;
+        levelManager = FindObjectOfType<LevelManager>();
         healthBar.maxValue = health;
         healthBar.value = health;
+        levelManager.AddCrop(health);
     }
     public void Damage(int damage)
     {
@@ -21,6 +25,7 @@ public class Crops : MonoBehaviour
             healthBar.value = 0;
             Debug.Log("Crops Destroyed");
         }
+        this.GetComponent<Collider2D>().enabled = false;
     }
 
 }

@@ -38,7 +38,11 @@ public class Player : MonoBehaviour
         {
             if (Input.GetKey(dropDummy))
             {
+                if (dummyCount > 0)
+                {
+                    SpawnDummy();
 
+                }
             }
         }
     }
@@ -88,7 +92,8 @@ public class Player : MonoBehaviour
 
     private void SpawnDummy()
     {
-
+        GameObject newDummy = Instantiate(dummy, this.transform.position, this.transform.rotation);
+        dummyCount--;
     }
 
     public void SetHealth(int newHealth)

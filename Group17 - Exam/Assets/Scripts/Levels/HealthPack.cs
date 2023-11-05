@@ -30,8 +30,8 @@ public class HealthPack : MonoBehaviour
         if (player != null)
             if (player.GetComponent<Player>().IsDummy())
             playerInRange = false;
-        else
-            playerInRange = true;
+            else
+                playerInRange = true;
         else
             playerInRange = false;
     }

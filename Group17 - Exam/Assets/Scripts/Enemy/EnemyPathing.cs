@@ -22,9 +22,7 @@ public class EnemyPathing : MonoBehaviour
     }
 
     private void Move()
-    {
-         
+    {         
         selfRb.AddForce(enemyAim.GetRotation() * movementSpeed, ForceMode2D.Force);   
-        //Debug.Log(rotation);
     }
 }

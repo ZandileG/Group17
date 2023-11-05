@@ -17,12 +17,14 @@ public class EnemyGrootslang : MonoBehaviour
     [SerializeField] private int attackCooldown;
     [SerializeField] private int attackMeleeDamage, attackRangeDamage;
     [SerializeField] private LayerMask playerLayer;
+    [SerializeField] private EnemyAim enemyAim;
     private Collider2D playerRanged, playerMelee;
     private Vector3 aim;
     private bool playerInRange, playerInMelee;
 
     private void Start()
     {
+        enemyAim = GetComponent<EnemyAim>();
         playerInRange = false;
         InvokeRepeating("EnemyAttack", 1.0f, 2.0f);
     }
@@ -40,11 +42,7 @@ public class EnemyGrootslang : MonoBehaviour
 
     private void Update()
     {
-        playerRanged = Physics2D.OverlapCircle(transform.position, rangedAgroRange, playerLayer);
-        if (playerRanged != null)
-            playerInRange = true;
-        else
-            playerInRange = false;
+        playerInRange = enemyAim.GetPlayerInRange();
         playerMelee = Physics2D.OverlapCircle(transform.position, meleeAgroRange, playerLayer);
         if (playerMelee != null)
             playerInMelee = true;
@@ -52,8 +50,7 @@ public class EnemyGrootslang : MonoBehaviour
             playerInMelee = false;
         if (playerInRange)
         {
-            Vector3 playerPosition = playerRanged.GetComponent<Transform>().transform.position;
-            Vector3 rotation = playerPosition - transform.position;
+            Vector3 rotation = enemyAim.GetRotation();
 
             float rotZ = Mathf.Atan2(rotation.y, rotation.x) * Mathf.Rad2Deg;
 

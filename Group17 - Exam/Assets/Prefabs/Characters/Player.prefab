@@ -1284,8 +1284,8 @@ MonoBehaviour:
   defeatUI: {fileID: 0}
   InvilFrames: 2
   playerManager: {fileID: 0}
-  dummy: {fileID: 0}
-  dummyCount: 0
+  dummy: {fileID: 7877460471504250731, guid: c3d1fc8203bda3e45a6829d86ffb336d, type: 3}
+  dummyCount: 1
   isDummy: 0
 --- !u!114 &6398819824497215
 MonoBehaviour:

@@ -6,28 +6,48 @@ public class EnemyAim : MonoBehaviour
 {
     [SerializeField] private float rangedAgroRange;
     [SerializeField] private LayerMask playerLayer;
-    private Vector2 rotation;
-    private RaycastHit2D playerRanged;
+    private Vector2 closestPlayer;
+    private Vector3[] playersInRange;
+    private Vector2 distance;
+    private RaycastHit2D[] playerRanged;
     private bool playerInRange;
+
+    private void Start()
+    {
+        playerInRange = false;
+    }
+
     private void Update()
     {
-        if (playerInRange)
-        {
-            Vector3 playerPosition = playerRanged.collider.GetComponent<Transform>().transform.position;
-            rotation = playerPosition - transform.position;
 
-            float rotZ = Mathf.Atan2(rotation.y, rotation.x) * Mathf.Rad2Deg;
-
-            transform.rotation = Quaternion.Euler(0, 0, rotZ);
-        }
     }
     private void FixedUpdate()
     {
-        playerRanged = Physics2D.CircleCast(transform.position, rangedAgroRange, Vector3.zero, 0,playerLayer);
-        if (playerRanged)
+        playerInRange = false;
+        playerRanged = Physics2D.CircleCastAll(transform.position, rangedAgroRange, Vector3.zero, 0,playerLayer);
+        foreach (RaycastHit2D hit in playerRanged)
+        {
             playerInRange = true;
-        else
-            playerInRange = false;
+            break;
+        }
+
+        if (playerInRange)
+        {
+            closestPlayer = Vector2.zero;
+            foreach (RaycastHit2D hit in playerRanged)
+            {
+                Vector3 playerPosition = hit.collider.GetComponent<Transform>().transform.position;
+                distance = playerPosition - transform.position;
+                if (distance.x <= closestPlayer.x || distance.y <= closestPlayer.y)
+                    closestPlayer = distance;
+            }
+
+
+
+            float rotZ = Mathf.Atan2(closestPlayer.y, closestPlayer.x) * Mathf.Rad2Deg;
+
+            transform.rotation = Quaternion.Euler(0, 0, rotZ);
+        }
     }
 
     private void OnDrawGizmosSelected()
@@ -37,8 +57,13 @@ public class EnemyAim : MonoBehaviour
 
     }
 
+    public bool GetPlayerInRange()
+    {
+        return playerInRange;
+    }
+
     public Vector2 GetRotation()
     {
-        return rotation;
+        return closestPlayer;
     }
 }
