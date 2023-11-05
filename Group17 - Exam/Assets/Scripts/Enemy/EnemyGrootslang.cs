@@ -18,6 +18,7 @@ public class EnemyGrootslang : MonoBehaviour
     [SerializeField] private int attackMeleeDamage, attackRangeDamage;
     [SerializeField] private LayerMask playerLayer;
     [SerializeField] private EnemyAim enemyAim;
+    [SerializeField] private GameObject head;
     private Collider2D playerRanged, playerMelee;
     private Vector3 aim;
     private bool playerInRange, playerInMelee;
@@ -54,7 +55,8 @@ public class EnemyGrootslang : MonoBehaviour
 
             float rotZ = Mathf.Atan2(rotation.y, rotation.x) * Mathf.Rad2Deg;
 
-            attackPoint.rotation = Quaternion.Euler(0, 0, rotZ);
+            //attackPoint.rotation = Quaternion.Euler(0, 0, rotZ);
+            //head.transform.rotation = Quaternion.Euler(0, 0, rotZ);
             aim = new (rotation.x,rotation.y,0);
         }
     }

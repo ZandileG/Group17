@@ -16,6 +16,7 @@ public class LevelManager : MonoBehaviour
     [SerializeField] private int waveDelay = 5;
     [SerializeField] bool isFirstLevel = false;
     [SerializeField] private GameObject[] spawnPoints;
+    private int finalWeaponChoice;
     private int cropHealth;
     private GameObject inheritWeapon, selfWeapon;
     private int currentLevel, currentWave, waveCount, totalEnemyCount;
@@ -119,7 +120,8 @@ public class LevelManager : MonoBehaviour
     {
         playerManager.SetWeapon(inheritWeapon);
         choiceUI.SetActive(false);
-        gameController.SetWeaponChoice(gameController.GetWeaponChoiceValue());
+
+        finalWeaponChoice = 0;
         Time.timeScale = 1;
 
     }
@@ -128,12 +130,21 @@ public class LevelManager : MonoBehaviour
     {
         playerManager.SetWeapon(selfWeapon);
         choiceUI.SetActive(false);
-        gameController.SetWeaponChoice(gameController.GetCurrentLevel()-1);
+
+        finalWeaponChoice = 1;
         Time.timeScale = 1;
     }
 
     public void ShowVictoryScreen()
     {
+        if (finalWeaponChoice == 0)
+        {
+            gameController.SetWeaponChoice(gameController.GetWeaponChoiceValue());
+        }
+        else
+        {
+            gameController.SetWeaponChoice(gameController.GetCurrentLevel() - 1);
+        }
         DialogueUI.SetActive(false);
         victoryUI.SetActive(true);
         Time.timeScale = 0;

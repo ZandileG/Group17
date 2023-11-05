@@ -10,11 +10,12 @@ public class EnemyAim : MonoBehaviour
     private Vector3[] playersInRange;
     private Vector2 distance;
     private RaycastHit2D[] playerRanged;
-    private bool playerInRange;
+    private bool playerInRange, facingRight;
 
     private void Start()
     {
         playerInRange = false;
+        facingRight = true;
     }
 
     private void Update()
@@ -27,13 +28,14 @@ public class EnemyAim : MonoBehaviour
         playerRanged = Physics2D.CircleCastAll(transform.position, rangedAgroRange, Vector3.zero, 0,playerLayer);
         foreach (RaycastHit2D hit in playerRanged)
         {
-            playerInRange = true;
-            break;
+            if (hit == true)
+                playerInRange = true;
         }
-
+        closestPlayer = Vector2.zero;
         if (playerInRange)
         {
-            closestPlayer = Vector2.zero;
+
+
             foreach (RaycastHit2D hit in playerRanged)
             {
                 Vector3 playerPosition = hit.collider.GetComponent<Transform>().transform.position;
@@ -41,12 +43,29 @@ public class EnemyAim : MonoBehaviour
                 if (distance.x <= closestPlayer.x || distance.y <= closestPlayer.y)
                     closestPlayer = distance;
             }
-
-
-
-            float rotZ = Mathf.Atan2(closestPlayer.y, closestPlayer.x) * Mathf.Rad2Deg;
-
-            transform.rotation = Quaternion.Euler(0, 0, rotZ);
+          
+            //transform.rotation = Quaternion.Euler(0, 0, rotZ);
+        }
+        else
+        {
+            closestPlayer = Vector3.zero - transform.position;
+        }
+        float rotZ = Mathf.Atan2(closestPlayer.y, closestPlayer.x) * Mathf.Rad2Deg;
+        if (closestPlayer.x >= 0)
+        {
+            if (!facingRight)
+            {
+                Flip();
+                facingRight = true;
+            }
+        }
+        else
+        {
+            if (facingRight)
+            {
+                Flip();
+                facingRight = false;
+            }
         }
     }
 
@@ -65,5 +84,12 @@ public class EnemyAim : MonoBehaviour
     public Vector2 GetRotation()
     {
         return closestPlayer;
+    }
+
+    private void Flip()
+    {
+        Vector3 currentScale = this.transform.localScale;
+        currentScale.x *= -1;
+        this.transform.localScale = currentScale;
     }
 }

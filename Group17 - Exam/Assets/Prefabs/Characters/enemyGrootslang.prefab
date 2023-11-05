@@ -518,6 +518,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   enemyAim: {fileID: 0}
+  head: {fileID: 0}
 --- !u!95 &1661618710184162137
 Animator:
   serializedVersion: 5
