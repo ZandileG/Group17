@@ -872,6 +872,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: LevelManager
       objectReference: {fileID: 0}
+    - target: {fileID: 7313973711990734067, guid: 2f3d1c95fcc9d4e47ac98b6cb43b995f, type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7313973711990734067, guid: 2f3d1c95fcc9d4e47ac98b6cb43b995f, type: 3}
+      propertyPath: m_ReferenceResolution.x
+      value: 1920
+      objectReference: {fileID: 0}
+    - target: {fileID: 7313973711990734067, guid: 2f3d1c95fcc9d4e47ac98b6cb43b995f, type: 3}
+      propertyPath: m_ReferenceResolution.y
+      value: 1080
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2f3d1c95fcc9d4e47ac98b6cb43b995f, type: 3}
 --- !u!1 &166035839 stripped
