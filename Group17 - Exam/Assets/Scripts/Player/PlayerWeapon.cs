@@ -30,11 +30,13 @@ public class PlayerWeapon : MonoBehaviour
     private bool canFire, isCharged;
     private Vector3 mousePos;
     private float randomSpread;
+    private bool isReloading;
     private float currentCharge;
     private int currentAmmo;
 
     private void Awake()
     {
+        isReloading = false;
         canFire = true;   
         isCharged = false;
         manager = FindObjectOfType<PlayerManager>();
@@ -59,35 +61,38 @@ public class PlayerWeapon : MonoBehaviour
         }
 
         Vector3 weaponRotation = mousePos - transform.position;
-        if (hasChargeTime && canFire && !manager.GetIsMeleeing() && !manager.GetIsRolling())
+        if (!isReloading)
         {
-            if (Input.GetKey(fireKey) && isCharged)
+            if (hasChargeTime && canFire && !manager.GetIsMeleeing() && !manager.GetIsRolling())
             {
-                if (currentCharge <= 1)
-                    currentCharge += chargeRate;
+                if (Input.GetKey(fireKey) && isCharged)
+                {
+                    if (currentCharge <= 1)
+                        currentCharge += chargeRate;
+                }
+                if (Input.GetKeyUp(fireKey) && isCharged)
+                {
+                    isCharged = false;
+                    Fire(weaponRotation);
+                    ReleaseArrow();
+                }
+                if (Input.GetKeyDown(fireKey) && !isCharged)
+                {
+                    LoadArrow();
+                    //loadedProjectile.transform.position = Vector3.zero;
+
+                    isCharged = true;
+                }
+                //StartCoroutine(ChargeUp());
+
+
             }
-            if (Input.GetKeyUp(fireKey) && isCharged)
+            if (Input.GetKey(fireKey) && !hasChargeTime && !manager.GetIsMeleeing() && !manager.GetIsRolling() && canFire)
             {
-                isCharged = false;
+                currentCharge = 1f;
                 Fire(weaponRotation);
-                ReleaseArrow();
+
             }
-            if (Input.GetKeyDown(fireKey) && !isCharged)
-            {
-                LoadArrow();
-                //loadedProjectile.transform.position = Vector3.zero;
-
-                isCharged = true;
-            }
-            //StartCoroutine(ChargeUp());
-
-
-        }
-        if (Input.GetKey(fireKey) && !hasChargeTime && !manager.GetIsMeleeing() && !manager.GetIsRolling())
-        {
-            currentCharge = 1f;
-            Fire(weaponRotation);
-
         }
     }
 
@@ -124,6 +129,7 @@ public class PlayerWeapon : MonoBehaviour
             StartCoroutine(FiringDelay());
         } else if (currentAmmo <= 0)
         {
+            isReloading = true;
             reloadIndicator.SetActive(true);
             StartCoroutine(Reload());
         }
@@ -143,6 +149,7 @@ public class PlayerWeapon : MonoBehaviour
     {
         yield return new WaitForSeconds(reloadTime);
         canFire = true;
+        isReloading = false;
         currentAmmo = ammoCount;
         reloadIndicator.SetActive(false);
         UpdateAmmo();

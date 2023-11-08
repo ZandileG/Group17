@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5231127389618230484}
   - component: {fileID: 3517835473955589062}
-  m_Layer: 3
+  m_Layer: 12
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8225570117167252574}
   - component: {fileID: 5557186026216133818}
-  m_Layer: 3
+  m_Layer: 12
   m_Name: Revolver-T2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -155,7 +155,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7920481653050760676}
-  m_Layer: 3
+  m_Layer: 12
   m_Name: Barrel
   m_TagString: Untagged
   m_Icon: {fileID: 0}

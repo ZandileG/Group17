@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7937307664584664252}
   - component: {fileID: 529143491695784726}
-  m_Layer: 3
+  m_Layer: 12
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -96,7 +96,7 @@ GameObject:
   - component: {fileID: 1611680099143728557}
   - component: {fileID: 1118778373856394211}
   - component: {fileID: -8575882837077079315}
-  m_Layer: 3
+  m_Layer: 12
   m_Name: Assegai
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -200,7 +200,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2523765029327712540}
-  m_Layer: 3
+  m_Layer: 12
   m_Name: MeleePoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 881027162453824629}
   - component: {fileID: 6543713234761978528}
-  m_Layer: 3
+  m_Layer: 12
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -93,7 +93,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6518642055522372521}
-  m_Layer: 3
+  m_Layer: 12
   m_Name: Barrel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -125,7 +125,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2461844132449755888}
   - component: {fileID: 2067321820657019481}
-  m_Layer: 3
+  m_Layer: 12
   m_Name: SMG-T2
   m_TagString: Untagged
   m_Icon: {fileID: 0}

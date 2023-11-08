@@ -51,7 +51,8 @@ public class EnemyGaGorib : MonoBehaviour
 
         foreach (Collider2D enemy in hitEnemies)
         {
-            enemy.GetComponent<Player>().Damage(attackMeleeDamage);
+            if (enemy != null)
+                enemy.GetComponent<Player>().Damage(attackMeleeDamage);
         }
 
         Collider2D[] hitCrops = Physics2D.OverlapCircleAll(head.transform.position, attackRange, cropLayer);

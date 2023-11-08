@@ -91,7 +91,8 @@ public class EnemyGrootslang : MonoBehaviour
         foreach (Collider2D enemy in hitEnemies)
         {
             //Debug.Log("Hit" + enemy.name);
-            enemy.GetComponent<Player>().Damage(attackMeleeDamage);
+            if (enemy != null)
+                enemy.GetComponent<Player>().Damage(attackMeleeDamage);
         }
 
         Collider2D[] hitCrops = Physics2D.OverlapCircleAll(head.transform.position, attackRange, cropLayer);
