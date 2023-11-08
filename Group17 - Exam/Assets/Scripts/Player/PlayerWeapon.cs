@@ -23,7 +23,9 @@ public class PlayerWeapon : MonoBehaviour
     [SerializeField] private float reloadTime = 1f;
     [SerializeField] private int ammoCount = 1;
     [SerializeField] private string weaponName;
+    [SerializeField] private AudioClip fireSound;
 
+    private AudioSource weaponAudio;
     private Camera playerCam;
     private const KeyCode fireKey = KeyCode.Mouse0;
     private const KeyCode reloadKey = KeyCode.R;
@@ -36,6 +38,7 @@ public class PlayerWeapon : MonoBehaviour
 
     private void Awake()
     {
+        weaponAudio = GetComponent<AudioSource>();
         isReloading = false;
         canFire = true;   
         isCharged = false;
@@ -111,7 +114,7 @@ public class PlayerWeapon : MonoBehaviour
                 reloadIndicator.SetActive(true);
                 ammoDisplay.text = "0";
             }
-            //fireSound.Play();
+            weaponAudio.PlayOneShot(fireSound);
             canFire = false;
             for (int i = 1; i <= fireCount; i++)
             {

@@ -13,7 +13,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1112648458293190979, guid: 6fb7229ab515ca14b95dbc40abf11c36, type: 3}
       propertyPath: destroyTime
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1936541832829651508, guid: 6fb7229ab515ca14b95dbc40abf11c36, type: 3}
       propertyPath: m_Size.x

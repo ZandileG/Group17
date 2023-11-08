@@ -11,8 +11,11 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float playerSprintSpeed = 15f;
     [SerializeField] private int playerMaxStamina = 1000;
     [SerializeField] private float playerRollInvilFrames = 0.5f;
+    [SerializeField] private float playerRollSpeed = 10f;
     [SerializeField] Slider staminaBar;
+    [SerializeField] private AudioClip walkSound;
 
+    private AudioSource playerAudio;
     private int playerStamina;
     private Rigidbody2D playerRB;
     private KeyCode rollKey = KeyCode.Space, sprintKey = KeyCode.LeftShift;
@@ -26,6 +29,7 @@ public class PlayerMovement : MonoBehaviour
         player = GetComponent<Player>();
         playerRB = GetComponent<Rigidbody2D>();
         orientation = GetComponent<Transform>();
+        playerAudio = GetComponent<AudioSource>();
         playerStamina = playerMaxStamina;
         staminaBar.maxValue = playerMaxStamina;
         staminaBar.value = playerMaxStamina;
@@ -55,6 +59,10 @@ public class PlayerMovement : MonoBehaviour
     {
         horizInput = Input.GetAxisRaw("Horizontal");
         vertInput = Input.GetAxisRaw("Vertical");
+
+        if (horizInput > 0 || vertInput > 0)
+            if (!playerAudio.isPlaying)
+            playerAudio.PlayOneShot(walkSound);
 
         if (Input.GetKey(sprintKey) && playerStamina > 5)
         {
@@ -86,7 +94,7 @@ public class PlayerMovement : MonoBehaviour
     {
         isRolling = true; 
         moveDirection = orientation.up * vertInput + orientation.right * horizInput;
-        playerRB.AddForce(moveDirection.normalized * playerWalkSpeed * 20f, ForceMode2D.Impulse);
+        playerRB.AddForce(moveDirection.normalized * playerRollSpeed * 20f, ForceMode2D.Impulse);
         playerStamina -= 10;
         StartCoroutine(RollDelay());
     }

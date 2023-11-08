@@ -20,12 +20,16 @@ public class EnemyGrootslang : MonoBehaviour
     [SerializeField] private EnemyAim enemyAim;
     [SerializeField] private GameObject head;
     [SerializeField] private LayerMask cropLayer;
+    [SerializeField] private AudioClip attackSound, spitSound;
+
+    private AudioSource enemyAudio;
     private Collider2D playerRanged, playerMelee;
     private Vector3 aim;
     private bool playerInRange, playerInMelee;
 
     private void Start()
     {
+        enemyAudio = GetComponent<AudioSource>();
         enemyAim = GetComponent<EnemyAim>();
         playerInRange = false;
         InvokeRepeating("EnemyAttack", 1.0f, 2.0f);
@@ -77,6 +81,7 @@ public class EnemyGrootslang : MonoBehaviour
 
     public void RangedAttack()
     {
+        enemyAudio.PlayOneShot(spitSound);
         Quaternion rotation = Quaternion.Euler(spitPoint.transform.eulerAngles.x, spitPoint.transform.eulerAngles.y, spitPoint.transform.eulerAngles.z);
         Vector3 position = new Vector3(spitPoint.transform.position.x, spitPoint.transform.position.y, spitPoint.transform.position.z);
         GameObject projectile = Instantiate(prefabProjectile, position, rotation);
@@ -87,7 +92,7 @@ public class EnemyGrootslang : MonoBehaviour
     public void MeleeAttack()
     {
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, playerLayer);
-
+        enemyAudio.PlayOneShot(attackSound);
         foreach (Collider2D enemy in hitEnemies)
         {
             //Debug.Log("Hit" + enemy.name);

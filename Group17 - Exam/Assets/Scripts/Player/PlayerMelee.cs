@@ -11,6 +11,9 @@ public class PlayerMelee : MonoBehaviour
     [SerializeField] private Transform meleePoint;
     [SerializeField] private LayerMask enemyLayer;
     [SerializeField] private float meleeCooldown = 1f;
+    [SerializeField] private AudioClip hitSound;
+
+    private AudioSource weaponAudio;
     private bool isAttacking;
     private bool canMelee;
     private bool hasHit;
@@ -18,6 +21,7 @@ public class PlayerMelee : MonoBehaviour
 
     private void Start()
     {
+        weaponAudio = GetComponent<AudioSource>();
         manager = FindObjectOfType<PlayerManager>();
         canMelee = true;
         isAttacking = false;
@@ -56,6 +60,8 @@ public class PlayerMelee : MonoBehaviour
             //Debug.Log("Hit" + enemy.name);
             if (hasHit)
             {
+                if (!weaponAudio.isPlaying)
+                    weaponAudio.PlayOneShot(hitSound);
                 if (enemy.GetComponent<Enemy>() != null)
                 {
                     //Debug.Log("Hit");

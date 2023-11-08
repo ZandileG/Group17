@@ -15,6 +15,9 @@ public class Player : MonoBehaviour
     [SerializeField] private GameObject dummy;   
     [SerializeField] private int dummyCount;
     [SerializeField] private bool isDummy = false;
+    [SerializeField] private AudioClip hitSound;
+
+    private AudioSource playerAudio;
     private KeyCode dropDummy = KeyCode.Q;
     private bool isInvil;
 
@@ -24,6 +27,7 @@ public class Player : MonoBehaviour
         {
             isInvil = false;
             playerManager = GetComponent<PlayerManager>();
+            playerAudio = GetComponent<AudioSource>();
             defeatUI = playerManager.GetUI();
             defeatUI.SetActive(false);
             healthBar.maxValue = maxHealth;
@@ -52,6 +56,7 @@ public class Player : MonoBehaviour
         {
             if (!isInvil)
             {
+                playerAudio.PlayOneShot(hitSound);
                 currenthealth -= damage;
                 healthBar.value = currenthealth;
                 if (currenthealth <= 0)

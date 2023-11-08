@@ -27,6 +27,11 @@ public class Crops : MonoBehaviour
         //healthBar.value = health;
         levelManager.AddCrop(health);
     }
+
+    private void Awake()
+    {
+
+    }
     public void Damage(int damage)
     {
         health -= damage;

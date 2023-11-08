@@ -2322,6 +2322,18 @@ PrefabInstance:
       propertyPath: unmuteButton
       value: 
       objectReference: {fileID: 158816711}
+    - target: {fileID: 3723202172113746334, guid: 1ee9d8a2ec02d3e40b36357c803d8560, type: 3}
+      propertyPath: m_Volume
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3723202172113746335, guid: 1ee9d8a2ec02d3e40b36357c803d8560, type: 3}
+      propertyPath: m_Volume
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3723202172113746335, guid: 1ee9d8a2ec02d3e40b36357c803d8560, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3723202172113746339, guid: 1ee9d8a2ec02d3e40b36357c803d8560, type: 3}
       propertyPath: m_Name
       value: SoundController

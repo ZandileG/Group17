@@ -12,11 +12,15 @@ public class EnemyGaGorib : MonoBehaviour
     [SerializeField] private int attackCooldown;
     [SerializeField] private int attackMeleeDamage;
     [SerializeField] private LayerMask playerLayer, cropLayer;
+    [SerializeField] private AudioClip attackSound;
+
+    private AudioSource enemyAudio;
     private Collider2D playerMelee;
     private bool playerInMelee;
 
     private void Start()
     {
+        enemyAudio = GetComponent<AudioSource>();
         InvokeRepeating("EnemyAttack", 1.0f, 4.0f);
     }
 
@@ -47,6 +51,8 @@ public class EnemyGaGorib : MonoBehaviour
 
     public void MeleeAttack()
     {
+        enemyAudio.PlayOneShot(attackSound);
+
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(head.transform.position, attackRange, playerLayer);
 
         foreach (Collider2D enemy in hitEnemies)

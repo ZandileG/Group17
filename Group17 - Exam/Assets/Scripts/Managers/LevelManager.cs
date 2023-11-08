@@ -16,23 +16,31 @@ public class LevelManager : MonoBehaviour
     [SerializeField] private int waveDelay = 5;
     [SerializeField] bool isFirstLevel = false;
     [SerializeField] private GameObject[] spawnPoints;
+    [SerializeField] private AudioClip waveSpawnSound;
+
+    private AudioSource waveAudio;
     private int finalWeaponChoice;
-    private int cropHealth;
+    public int cropHealth;
     private GameObject inheritWeapon, selfWeapon;
     private int currentLevel, currentWave, waveCount, totalEnemyCount;
     private int displayDelay = 1;
 
+    private void Awake()
+    {
+        cropHealth = 0;
+    }
     private void Start()
     {
         Time.timeScale = 0;
         totalEnemyCount = 0;
-        cropHealth = 0;
+
         choiceUI.SetActive(true);
         victoryUI.SetActive(false);
         defeatUI.SetActive(false);
         DialogueUI.SetActive(false);
         playerManager = FindObjectOfType<PlayerManager>();
         gameController = FindObjectOfType<GameController>();
+        waveAudio = GetComponent<AudioSource>();
         currentWave = 0;
         currentLevel = gameController.GetCurrentLevel();
         waveCount = gameController.GetWaveCount();
@@ -85,6 +93,7 @@ public class LevelManager : MonoBehaviour
 
     public void SpawnEnemies()
     {
+        waveAudio.PlayOneShot(waveSpawnSound);
         totalEnemyCount = 0;
         for (int i = 0; i < 3; i++)
         {

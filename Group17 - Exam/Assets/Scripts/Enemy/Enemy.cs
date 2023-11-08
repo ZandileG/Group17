@@ -10,15 +10,20 @@ public class Enemy : MonoBehaviour
     [SerializeField] private int attackDamage;
     [SerializeField] private Slider healthDisplay;
     [SerializeField] private LevelManager levelManager;
+    [SerializeField] private AudioClip hitSound, AmbientSound;
+
+    private AudioSource enemyAudio;
     private bool isDead;
     // Start is called before the first frame update
     
     private void Start()
     {
         isDead = false;
+        enemyAudio = GetComponent<AudioSource>();
         levelManager = FindObjectOfType<LevelManager>();
         healthDisplay.maxValue = health;
         healthDisplay.value = health;
+        InvokeRepeating("PlayAmbient", 1f, 10f);
     }
 
     public int GetDamage()
@@ -41,11 +46,24 @@ public class Enemy : MonoBehaviour
     {
         health -= damage;
         healthDisplay.value = health;
+        enemyAudio.PlayOneShot(hitSound);
         if (health <= 0)
         {
             Kill();
            
         }
+    }
+
+    private void PlayAmbient()
+    {
+        int random = Random.Range(0, 5);
+        StartCoroutine(RandomDelay(random));
+    }
+
+    IEnumerator RandomDelay(int delay)
+    {
+        yield return new WaitForSeconds(delay);
+        enemyAudio.PlayOneShot(AmbientSound);
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
