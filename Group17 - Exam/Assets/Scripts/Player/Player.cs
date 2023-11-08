@@ -56,6 +56,7 @@ public class Player : MonoBehaviour
                 healthBar.value = currenthealth;
                 if (currenthealth <= 0)
                 {
+                    UnlockCursor();
                     healthBar.value = 0;
                     defeatUI.SetActive(true);
                     Time.timeScale = 0;
@@ -71,6 +72,11 @@ public class Player : MonoBehaviour
                 Destroy(gameObject);
             }
         }
+    }
+    public void UnlockCursor()
+    {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
     }
 
     IEnumerator PlayerInvil()

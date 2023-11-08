@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4782496720217147645}
   - component: {fileID: 415973950775409396}
   - component: {fileID: 923986226047761818}
+  - component: {fileID: 4224993871639679293}
   m_Layer: 0
   m_Name: Fence
   m_TagString: Untagged
@@ -53,7 +54,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -111,3 +112,30 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 4.5131416, y: 2.0978305}
   m_EdgeRadius: 0
+--- !u!114 &4224993871639679293
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5372087689590333313}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7db70e0ea77f5ac47a8f4565a9406397, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShadowGroup: 0
+  m_ComponentVersion: 1
+  m_HasRenderer: 1
+  m_UseRendererSilhouette: 1
+  m_CastsShadows: 1
+  m_SelfShadows: 0
+  m_ApplyToSortingLayers: 3fa8b80300000000f303fb98
+  m_ShapePath:
+  - {x: -1.7796621, y: -0.56056035, z: 0}
+  - {x: -1.7796621, y: 1.0969651, z: 0}
+  - {x: 1.974719, y: 1.1701107, z: 0}
+  - {x: 1.974719, y: -0.6824703, z: 0}
+  m_ShapePathHash: 738174725
+  m_Mesh: {fileID: 0}
+  m_InstanceId: -89428

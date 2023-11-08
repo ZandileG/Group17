@@ -5,33 +5,38 @@ using UnityEngine;
 public class EnemyAim : MonoBehaviour
 {
     [SerializeField] private float rangedAgroRange;
-    [SerializeField] private LayerMask playerLayer;
-    private Vector2 closestPlayer;
-    private Vector3[] playersInRange;
+    [SerializeField] private LayerMask playerLayer, cropLayer;
+    private Vector2 closest;
+    private Vector3[] playersInRange, cropsInRange;
     private Vector2 distance;
-    private RaycastHit2D[] playerRanged;
-    private bool playerInRange, facingRight;
+    private RaycastHit2D[] playerRanged, cropRanged;
+    private bool playerInRange, facingRight, cropInRange;
 
     private void Start()
     {
         playerInRange = false;
+        cropInRange = false;
         facingRight = true;
     }
 
+
     private void Update()
     {
-
-    }
-    private void FixedUpdate()
-    {
         playerInRange = false;
+        cropInRange = false;
         playerRanged = Physics2D.CircleCastAll(transform.position, rangedAgroRange, Vector3.zero, 0,playerLayer);
+        cropRanged = Physics2D.CircleCastAll(transform.position, rangedAgroRange, Vector3.zero, 0, cropLayer);
         foreach (RaycastHit2D hit in playerRanged)
         {
             if (hit == true)
                 playerInRange = true;
         }
-        closestPlayer = Vector2.zero;
+        foreach (RaycastHit2D hit in cropRanged)
+        {
+            if (hit == true)
+                cropInRange = true;
+        }
+        closest = Vector2.zero;
         if (playerInRange)
         {
 
@@ -40,18 +45,28 @@ public class EnemyAim : MonoBehaviour
             {
                 Vector3 playerPosition = hit.collider.GetComponent<Transform>().transform.position;
                 distance = playerPosition - transform.position;
-                if (distance.x <= closestPlayer.x || distance.y <= closestPlayer.y)
-                    closestPlayer = distance;
+                if (distance.x <= closest.x || distance.y <= closest.y)
+                    closest = distance;
             }
           
             //transform.rotation = Quaternion.Euler(0, 0, rotZ);
         }
-        else
+        else if (cropInRange)
         {
-            closestPlayer = Vector3.zero - transform.position;
+            foreach (RaycastHit2D hit in cropRanged)
+            {
+                Vector3 cropPosition = hit.collider.GetComponent<Transform>().transform.position;
+                distance = cropPosition - transform.position;
+                if (distance.x <= closest.x || distance.y <= closest.y)
+                    closest = distance;
+            }
+        } else
+        {
+            closest = Vector3.zero - transform.position;
         }
-        float rotZ = Mathf.Atan2(closestPlayer.y, closestPlayer.x) * Mathf.Rad2Deg;
-        if (closestPlayer.x >= 0)
+        closest.Normalize();
+        float rotZ = Mathf.Atan2(closest.y, closest.x) * Mathf.Rad2Deg;
+        if (closest.x >= 0)
         {
             if (!facingRight)
             {
@@ -83,7 +98,7 @@ public class EnemyAim : MonoBehaviour
 
     public Vector2 GetRotation()
     {
-        return closestPlayer;
+        return closest;
     }
 
     private void Flip()

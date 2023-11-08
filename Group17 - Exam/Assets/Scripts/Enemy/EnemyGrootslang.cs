@@ -19,6 +19,7 @@ public class EnemyGrootslang : MonoBehaviour
     [SerializeField] private LayerMask playerLayer;
     [SerializeField] private EnemyAim enemyAim;
     [SerializeField] private GameObject head;
+    [SerializeField] private LayerMask cropLayer;
     private Collider2D playerRanged, playerMelee;
     private Vector3 aim;
     private bool playerInRange, playerInMelee;
@@ -49,6 +50,14 @@ public class EnemyGrootslang : MonoBehaviour
             playerInMelee = true;
         else
             playerInMelee = false;
+        if (!playerInMelee)
+        {
+            playerMelee = Physics2D.OverlapCircle(transform.position, meleeAgroRange, cropLayer);
+            if (playerMelee != null)
+                playerInMelee = true;
+            else
+                playerInMelee = false;
+        }
         if (playerInRange)
         {
             Vector3 rotation = enemyAim.GetRotation();
@@ -83,6 +92,13 @@ public class EnemyGrootslang : MonoBehaviour
         {
             //Debug.Log("Hit" + enemy.name);
             enemy.GetComponent<Player>().Damage(attackMeleeDamage);
+        }
+
+        Collider2D[] hitCrops = Physics2D.OverlapCircleAll(head.transform.position, attackRange, cropLayer);
+
+        foreach (Collider2D enemy in hitCrops)
+        {
+            enemy.GetComponent<Crops>().Damage(attackMeleeDamage);
         }
     }
 

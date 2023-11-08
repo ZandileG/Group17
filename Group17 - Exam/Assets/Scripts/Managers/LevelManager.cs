@@ -57,6 +57,7 @@ public class LevelManager : MonoBehaviour
 
     public GameObject GetDefeatScreen()
     {
+ 
         return defeatUI;
     }
 
@@ -112,6 +113,9 @@ public class LevelManager : MonoBehaviour
         cropHealth -= damage;
         if (cropHealth <= 0)
         {
+            UnlockCursor();
+            defeatUI.SetActive(true);
+            Time.timeScale = 0;
             Debug.Log("You Lose");
         }
     }
@@ -120,6 +124,7 @@ public class LevelManager : MonoBehaviour
     {
         playerManager.SetWeapon(inheritWeapon);
         choiceUI.SetActive(false);
+        LockCursor();
 
         finalWeaponChoice = 0;
         Time.timeScale = 1;
@@ -130,9 +135,22 @@ public class LevelManager : MonoBehaviour
     {
         playerManager.SetWeapon(selfWeapon);
         choiceUI.SetActive(false);
+        LockCursor();
 
         finalWeaponChoice = 1;
         Time.timeScale = 1;
+    }
+
+    public void LockCursor()
+    {
+        Cursor.lockState = CursorLockMode.Confined;
+        Cursor.visible = false;
+    }
+
+    public void UnlockCursor()
+    {
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
     }
 
     public void ShowVictoryScreen()
@@ -145,6 +163,7 @@ public class LevelManager : MonoBehaviour
         {
             gameController.SetWeaponChoice(gameController.GetCurrentLevel() - 1);
         }
+        UnlockCursor();
         DialogueUI.SetActive(false);
         victoryUI.SetActive(true);
         Time.timeScale = 0;
@@ -161,6 +180,7 @@ public class LevelManager : MonoBehaviour
         yield return new WaitForSeconds(displayDelay);
         Time.timeScale = 0f;
         DialogueUI.SetActive(true);
+        UnlockCursor();
     }
 
 }

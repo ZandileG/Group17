@@ -8,10 +8,10 @@ public class EnemyGaGorib : MonoBehaviour
     [SerializeField] private GameObject head;
     [SerializeField] private Animator animator;
     [SerializeField] private float attackRange;
-    [SerializeField] private int meleeAgroRange;
+    [SerializeField] private float meleeAgroRange;
     [SerializeField] private int attackCooldown;
     [SerializeField] private int attackMeleeDamage;
-    [SerializeField] private LayerMask playerLayer;
+    [SerializeField] private LayerMask playerLayer, cropLayer;
     private Collider2D playerMelee;
     private bool playerInMelee;
 
@@ -35,6 +35,14 @@ public class EnemyGaGorib : MonoBehaviour
             playerInMelee = true;
         else
             playerInMelee = false;
+        if (!playerInMelee)
+        {
+            playerMelee = Physics2D.OverlapCircle(transform.position, meleeAgroRange, cropLayer);
+            if (playerMelee != null)
+                playerInMelee = true;
+            else
+                playerInMelee = false;
+        }
     }
 
     public void MeleeAttack()
@@ -44,6 +52,13 @@ public class EnemyGaGorib : MonoBehaviour
         foreach (Collider2D enemy in hitEnemies)
         {
             enemy.GetComponent<Player>().Damage(attackMeleeDamage);
+        }
+
+        Collider2D[] hitCrops = Physics2D.OverlapCircleAll(head.transform.position, attackRange, cropLayer);
+
+        foreach (Collider2D enemy in hitCrops)
+        {
+            enemy.GetComponent<Crops>().Damage(attackMeleeDamage);
         }
     }
 

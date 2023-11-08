@@ -1,15 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.SearchService;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 
 public class EndMenu : MonoBehaviour
 {
-    // Start is called before the first frame update
+    private GameController gameController;
+
+    private void Start()
+    {
+        gameController = FindObjectOfType<GameController>();
+    }
     public void Home()
     {
+        gameController.ResetGame();
         SceneManager.LoadScene("MainMenu");
 
     }
