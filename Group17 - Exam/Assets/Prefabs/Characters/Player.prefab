@@ -1216,7 +1216,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   orientation: {fileID: 4703987963691681283}
-  playerWalkSpeed: 10
+  playerWalkSpeed: 15
   playerSprintSpeed: 35
   playerMaxStamina: 120
   playerRollInvilFrames: 0.5

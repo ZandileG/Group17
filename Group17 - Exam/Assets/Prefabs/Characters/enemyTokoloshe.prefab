@@ -218,7 +218,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   selfRb: {fileID: 0}
   enemyAim: {fileID: 0}
-  movementSpeed: 100
+  movementSpeed: 90
   walkSound: {fileID: 8300000, guid: acca79592c01bad438b2c657faf130c8, type: 3}
 --- !u!114 &7743098096741235601
 MonoBehaviour:
@@ -413,7 +413,7 @@ MonoBehaviour:
   - {x: 0.04628548, y: 0.38779667, z: 0}
   m_ShapePathHash: 2074735589
   m_Mesh: {fileID: 0}
-  m_InstanceId: 48006
+  m_InstanceId: 118416
 --- !u!82 &3901088167929779111
 AudioSource:
   m_ObjectHideFlags: 0
