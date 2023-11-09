@@ -61,13 +61,14 @@ public class Boss : MonoBehaviour
                 break;
         }
         */
-        animator.SetTrigger("Spin");
+        animator.SetTrigger("Homing");
     }
 
     public void dashAttack()
     {
 
     }
+    //Animation: Spin
     public void spinAttack()
     {                   
         Quaternion rotation = Quaternion.Euler(transform.eulerAngles.x, transform.eulerAngles.y, transform.eulerAngles.z);
@@ -113,6 +114,7 @@ public class Boss : MonoBehaviour
 
         }
     }
+    //Animation: Homing
     public void followAttack()
     {
         Quaternion rotation = Quaternion.Euler(transform.eulerAngles.x, transform.eulerAngles.y, transform.eulerAngles.z);

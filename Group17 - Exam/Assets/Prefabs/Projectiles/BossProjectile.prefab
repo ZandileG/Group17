@@ -72,7 +72,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 6
   m_Sprite: {fileID: 21300000, guid: f42ee8b1d4618eb47b63c4ad97a35717, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -131,9 +131,9 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
+  m_Mass: 10
+  m_LinearDrag: 1
+  m_AngularDrag: 0.15
   m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 1
@@ -178,10 +178,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59199fe69f1fdf949894d563d78fde8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  agroRange: 10
+  agroRange: 20
   playerLayer:
     serializedVersion: 2
     m_Bits: 8
   destroyTime: 5
-  projectileForce: 10
+  projectileForce: 5
   projectileDir: {x: 0, y: 0}
+  playerInRange: 0
