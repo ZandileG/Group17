@@ -732,6 +732,8 @@ MonoBehaviour:
   normalProjectile: {fileID: 7950960192133628942, guid: 6b8dc6719ce2d9746a2b502cc17000a1, type: 3}
   followProjectile: {fileID: 4174901378519910109, guid: 3e73c86b44526a249992b3a34a69487c, type: 3}
   dashForce: 5000
+  bossDash: {fileID: 8300000, guid: aa2d68599e099694aaec776f49818f43, type: 3}
+  bossShoot: {fileID: 8300000, guid: e04892d5d6503ae4295facdbe73c156c, type: 3}
 --- !u!114 &3805935561040404755
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -762,7 +764,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.2
   m_Pitch: 1
   Loop: 0
   Mute: 0

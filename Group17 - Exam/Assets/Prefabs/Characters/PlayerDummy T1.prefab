@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8668429451727874475}
   - component: {fileID: 241932686789583052}
   m_Layer: 3
-  m_Name: PlayerDummy
+  m_Name: PlayerDummy T1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -161,3 +161,4 @@ MonoBehaviour:
   dummyCount: 0
   isDummy: 1
   hitSound: {fileID: 0}
+  destroyTime: 10

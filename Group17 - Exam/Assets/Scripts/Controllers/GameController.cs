@@ -10,7 +10,7 @@ public class GameController : MonoBehaviour
     //Weapon, Weapon tier.
     [SerializeField] GameObject[] bowWeapons, revolverWeapons, shotgunWeapons, smgWeapons, arWeapons;
     [SerializeField] GameObject[,] playerWeapons = new GameObject[5,6];
-    private int weaponChoice = 3;
+    private int weaponChoice = 0;
     private int currentLevel;
     private int[] waveCount = new int[5] { 2, 2, 3, 3, 5 };
     private int villainOpinion;
@@ -64,7 +64,7 @@ public class GameController : MonoBehaviour
             playerWeapons[3, i] = smgWeapons[i];
             playerWeapons[4, i] = arWeapons[i];
         }
-        currentLevel = 6;
+        currentLevel = 0;
 
     }
 

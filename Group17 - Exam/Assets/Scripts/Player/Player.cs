@@ -16,6 +16,7 @@ public class Player : MonoBehaviour
     [SerializeField] private int dummyCount;
     [SerializeField] private bool isDummy = false;
     [SerializeField] private AudioClip hitSound;
+    [SerializeField] private float destroyTime;
 
     private AudioSource playerAudio;
     private KeyCode dropDummy = KeyCode.Q;
@@ -23,9 +24,10 @@ public class Player : MonoBehaviour
 
     private void Start()
     {
+        isInvil = false;
         if (!isDummy)
         {
-            isInvil = false;
+
             playerManager = GetComponent<PlayerManager>();
             playerAudio = GetComponent<AudioSource>();
             healthBar.maxValue = maxHealth;
@@ -33,6 +35,9 @@ public class Player : MonoBehaviour
             currenthealth = maxHealth;
             defeatUI = playerManager.GetUI();
             defeatUI.SetActive(false);
+        } else
+        {
+            StartCoroutine(DestroySelf());
         }
     }
 
@@ -133,5 +138,11 @@ public class Player : MonoBehaviour
     public bool DoesPlayerNeedHealing()
     {
         return (currenthealth < maxHealth);
+    }
+
+    IEnumerator DestroySelf()
+    {
+        yield return new WaitForSeconds(destroyTime);
+        Destroy(gameObject);
     }
 }

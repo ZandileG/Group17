@@ -16,6 +16,9 @@ public class Boss : MonoBehaviour
     [SerializeField] private Animator animator;
     [SerializeField] private GameObject normalProjectile, followProjectile;
     [SerializeField] private float dashForce;
+    [SerializeField] private AudioClip bossDash, bossShoot;
+
+    private AudioSource bossAudioSource;
     private Rigidbody2D bossRB;
     private Vector3 playerPos;
     private int count;
@@ -27,6 +30,7 @@ public class Boss : MonoBehaviour
         count = 1;
         facingRight = true;
         bossRB = GetComponent<Rigidbody2D>();
+        bossAudioSource = GetComponent<AudioSource>();
         InvokeRepeating("Attack",1f, 1.5f);        
     }
 
@@ -83,6 +87,7 @@ public class Boss : MonoBehaviour
             Vector3 position = transform.position;
             Quaternion projRotation = Quaternion.Euler(0, 0, rotZ);
             bossRB.AddForce(playerPos * dashForce, ForceMode2D.Force);
+            bossAudioSource.PlayOneShot(bossDash);
         }
     }
     //Animation: Spin
@@ -114,6 +119,7 @@ public class Boss : MonoBehaviour
                     GameObject projectile = Instantiate(normalProjectile, position, projRotation);
                     projectile.GetComponent<EnemyProjectile>().SetDamage(rangedDamage);
                     projectile.GetComponent<EnemyProjectile>().Fire(new Vector2(i, n) * shotForce);
+                    bossAudioSource.PlayOneShot(bossShoot);
                 }
             }
         }
@@ -190,6 +196,7 @@ public class Boss : MonoBehaviour
         GameObject projectile = Instantiate(normalProjectile, position, projRotation);
         projectile.GetComponent<EnemyProjectile>().SetDamage(rangedDamage);
         projectile.GetComponent<EnemyProjectile>().Fire(new Vector2(i, n) * shotForce);
+        bossAudioSource.PlayOneShot(bossShoot);
     }
     //Animation: Spray
     public void sprayAttack()
@@ -204,6 +211,7 @@ public class Boss : MonoBehaviour
                 GameObject projectile = Instantiate(normalProjectile, position, projRotation);
                 projectile.GetComponent<EnemyProjectile>().SetDamage(rangedDamage);
                 projectile.GetComponent<EnemyProjectile>().Fire(new Vector2(playerPos.x + n, playerPos.y + n).normalized * shotForce);
+                bossAudioSource.PlayOneShot(bossShoot);
             }
         }
     }
@@ -218,6 +226,7 @@ public class Boss : MonoBehaviour
             GameObject projectile = Instantiate(normalProjectile, position, projRotation);
             projectile.GetComponent<EnemyProjectile>().SetDamage(rangedDamage);
             projectile.GetComponent<EnemyProjectile>().Fire(new Vector2(playerPos.x, playerPos.y).normalized * shotForce);
+            bossAudioSource.PlayOneShot(bossShoot);
         }
     }
     //Animation: Homing
@@ -226,6 +235,7 @@ public class Boss : MonoBehaviour
         Quaternion rotation = Quaternion.Euler(transform.eulerAngles.x, transform.eulerAngles.y, transform.eulerAngles.z);
         Vector3 position = transform.position;
         GameObject projectile = Instantiate(followProjectile, position, rotation);
+        bossAudioSource.PlayOneShot(bossShoot);
     }
 
     private void OnDrawGizmosSelected()
