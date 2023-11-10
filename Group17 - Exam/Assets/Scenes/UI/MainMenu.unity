@@ -1961,15 +1961,18 @@ MonoBehaviour:
     roll.
 
 
-    3. Press the Left arrow + Shift to sprint (LeftShift)
+    3. Press WASD or the arrow keys + Shift to sprint
 
 
     4. Click
     your mouse or trackpad to shoot at enemies.
 
 
-    5. Press the Esc key to pause
-    the game.'
+    5. Press ''Q'' to drop bait
+    for the enemies.
+
+
+    6. Press the Esc key to pause the game.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
   m_sharedMaterial: {fileID: 2164040, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
