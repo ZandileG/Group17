@@ -765,7 +765,7 @@ PrefabInstance:
     - target: {fileID: 3723202172113746335, guid: 1ee9d8a2ec02d3e40b36357c803d8560, type: 3}
       propertyPath: m_audioClip
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 8300000, guid: a0fad4edeb2d6164cac6d0dce669dbb3, type: 3}
     - target: {fileID: 3723202172113746339, guid: 1ee9d8a2ec02d3e40b36357c803d8560, type: 3}
       propertyPath: m_Name
       value: SoundController
