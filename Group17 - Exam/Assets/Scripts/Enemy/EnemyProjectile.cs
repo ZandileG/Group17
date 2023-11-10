@@ -19,6 +19,11 @@ public class EnemyProjectile : MonoBehaviour
         GetComponent<Rigidbody2D>().velocity = velocity;
     }
 
+    public void SetRotation(Vector3 rotation)
+    {
+
+    }
+
     IEnumerator DestroySelf()
     {
         yield return new WaitForSeconds(destroyTime);
@@ -40,8 +45,8 @@ public class EnemyProjectile : MonoBehaviour
         if (other.TryGetComponent<Player>(out Player player))
         {
             //Debug.Log("Hit");
-            player.Damage(damage);
-            Destroy(gameObject);
+            if (player.Damage(damage))
+                Destroy(gameObject);
         }
 
     }

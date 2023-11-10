@@ -69,9 +69,8 @@ public class BossProjectile : MonoBehaviour
     {
         if (other.TryGetComponent<Player>(out Player player))
         {
-            //Debug.Log("Hit");
-            player.Damage(damage);
-            
+            if (player.Damage(damage))
+                Destroy(gameObject);
         }
 
     }

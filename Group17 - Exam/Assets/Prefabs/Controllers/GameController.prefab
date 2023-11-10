@@ -65,11 +65,13 @@ MonoBehaviour:
   - {fileID: 2691723344376171451, guid: f47e88c074b30ca41bf27e47385174da, type: 3}
   - {fileID: 2691723344376171451, guid: e94a4bbfa5b54574e8d1c53659eb14f8, type: 3}
   - {fileID: 2691723344376171451, guid: a09eb6c52271e284183c3491d3654e5e, type: 3}
+  - {fileID: 2691723344376171451, guid: a09eb6c52271e284183c3491d3654e5e, type: 3}
   revolverWeapons:
   - {fileID: 6659639763315482395, guid: 7caf7f2033b923b4f9a441cffaafcfe2, type: 3}
   - {fileID: 6659639763315482395, guid: 7caf7f2033b923b4f9a441cffaafcfe2, type: 3}
   - {fileID: 6659639763315482395, guid: d1b938077cceb0040b8100e231975377, type: 3}
   - {fileID: 6659639763315482395, guid: 5843cf487551515478f59a12846c04db, type: 3}
+  - {fileID: 6659639763315482395, guid: f01a31a904a17824a89cc786305bb38c, type: 3}
   - {fileID: 6659639763315482395, guid: f01a31a904a17824a89cc786305bb38c, type: 3}
   shotgunWeapons:
   - {fileID: 6702222261314568105, guid: c48de0599a293dd46abed6c74ea3e655, type: 3}
@@ -77,13 +79,16 @@ MonoBehaviour:
   - {fileID: 6702222261314568105, guid: c48de0599a293dd46abed6c74ea3e655, type: 3}
   - {fileID: 6702222261314568105, guid: a7d9bbd5f8ac5bb4bac6db683b20563f, type: 3}
   - {fileID: 6702222261314568105, guid: 6d444387ceb04344d9d5116566148d99, type: 3}
+  - {fileID: 6702222261314568105, guid: 6d444387ceb04344d9d5116566148d99, type: 3}
   smgWeapons:
   - {fileID: 8235392528216751832, guid: eb4f70153d3dae240b7d955e0b5a0bc3, type: 3}
   - {fileID: 8235392528216751832, guid: eb4f70153d3dae240b7d955e0b5a0bc3, type: 3}
   - {fileID: 8235392528216751832, guid: eb4f70153d3dae240b7d955e0b5a0bc3, type: 3}
   - {fileID: 8235392528216751832, guid: eb4f70153d3dae240b7d955e0b5a0bc3, type: 3}
   - {fileID: 8235392528216751832, guid: 40aad1e1dc3938d4ca2e9b37533eed2e, type: 3}
+  - {fileID: 8235392528216751832, guid: 40aad1e1dc3938d4ca2e9b37533eed2e, type: 3}
   arWeapons:
+  - {fileID: 298901568839467313, guid: 8c255f4d6e9d5bf41bd4905c818afcb5, type: 3}
   - {fileID: 298901568839467313, guid: 8c255f4d6e9d5bf41bd4905c818afcb5, type: 3}
   - {fileID: 298901568839467313, guid: 8c255f4d6e9d5bf41bd4905c818afcb5, type: 3}
   - {fileID: 298901568839467313, guid: 8c255f4d6e9d5bf41bd4905c818afcb5, type: 3}
