@@ -721,7 +721,7 @@ MonoBehaviour:
   attackPoint: {fileID: 8659057294539487344}
   aim: {fileID: 6398819605490100}
   attackRange: 10
-  agroRange: 50
+  agroRange: 100
   attackCooldown: 1
   rangedDamage: 1
   shotForce: 20

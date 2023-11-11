@@ -64,7 +64,7 @@ public class GameController : MonoBehaviour
             playerWeapons[3, i] = smgWeapons[i];
             playerWeapons[4, i] = arWeapons[i];
         }
-        currentLevel = 0;
+        currentLevel = -1;
 
     }
 
@@ -120,6 +120,11 @@ public class GameController : MonoBehaviour
     public void ModifyVillainOpinion(int value)
     {
         villainOpinion += value;
+    }
+
+    public int GetVillainOpinion()
+    {
+        return villainOpinion;
     }
     private void FindLevelManager()
     {
