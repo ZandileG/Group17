@@ -2,9 +2,10 @@ using UnityEngine;
 
 public class PauseMenu : MonoBehaviour
 {
+    [SerializeField] AudioSource musicSource;
     public GameObject menuScreen;
     private bool isPaused;
-
+    
     private void Start()
     {
         isPaused = false;
@@ -17,6 +18,7 @@ public class PauseMenu : MonoBehaviour
             // Check if the GameObject is not already active
             if (!isPaused)
             {
+                musicSource.Stop();
                 isPaused = true;
                 menuScreen.SetActive(true);
                 Time.timeScale = 0f;
@@ -34,6 +36,7 @@ public class PauseMenu : MonoBehaviour
 
     public void Resume()
     {
+        musicSource.Play();
         Time.timeScale = 1f;
         Cursor.lockState = CursorLockMode.Confined;
         Cursor.visible = false;
