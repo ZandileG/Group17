@@ -12,7 +12,7 @@ public class Player : MonoBehaviour
     [SerializeField] private GameObject defeatUI;
     [SerializeField] private float InvilFrames;
     [SerializeField] private PlayerManager playerManager;
-    [SerializeField] private GameObject dummy;   
+    [SerializeField] private GameObject dummy;
     [SerializeField] private int dummyCount;
     [SerializeField] private bool isDummy = false;
     [SerializeField] private AudioClip hitSound;
@@ -28,11 +28,11 @@ public class Player : MonoBehaviour
             isInvil = false;
             playerManager = GetComponent<PlayerManager>();
             playerAudio = GetComponent<AudioSource>();
-            defeatUI = playerManager.GetUI();
-            defeatUI.SetActive(false);
             healthBar.maxValue = maxHealth;
             healthBar.value = maxHealth;
             currenthealth = maxHealth;
+            defeatUI = playerManager.GetUI();
+            defeatUI.SetActive(false);
         }
     }
 
@@ -50,8 +50,9 @@ public class Player : MonoBehaviour
             }
         }
     }
-    public void Damage(int damage)
+    public bool Damage(int damage)
     {
+        bool state = true;
         if (!isDummy)
         {
             if (!isInvil)
@@ -66,17 +67,27 @@ public class Player : MonoBehaviour
                     defeatUI.SetActive(true);
                     Time.timeScale = 0;
                 }
+
                 isInvil = true;
                 StartCoroutine(PlayerInvil());
+                state = true;
             }
-        } else
+            else
+            {
+                state = false;
+            }
+
+        }
+        else
         {
             currenthealth -= damage;
             if (currenthealth <= 0)
             {
                 Destroy(gameObject);
             }
+            state = true;
         }
+        return state;
     }
     public void UnlockCursor()
     {
@@ -105,6 +116,11 @@ public class Player : MonoBehaviour
     {
         GameObject newDummy = Instantiate(dummy, this.transform.position, this.transform.rotation);
         dummyCount--;
+    }
+
+    public bool GetIsInvil()
+    {
+        return isInvil;
     }
 
     public void SetHealth(int newHealth)

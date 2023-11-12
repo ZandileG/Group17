@@ -6,6 +6,7 @@ public class EnemyAim : MonoBehaviour
 {
     [SerializeField] private float rangedAgroRange;
     [SerializeField] private LayerMask playerLayer, cropLayer;
+    [SerializeField] private bool focusCrops;
     private Vector3 nullLocation;
     private Vector2 closest;
     private Vector3[] playersInRange, cropsInRange;
@@ -39,32 +40,32 @@ public class EnemyAim : MonoBehaviour
                 cropInRange = true;
         }
         closest = Vector2.zero;
-        if (playerInRange)
+        if (focusCrops)
         {
-
-
-            foreach (RaycastHit2D hit in playerRanged)
+            if (cropInRange)
             {
-                Vector3 playerPosition = hit.collider.GetComponent<Transform>().transform.position;
-                distance = playerPosition - transform.position;
-                if (distance.x <= closest.x || distance.y <= closest.y)
-                    closest = distance;
-            }
-          
-            //transform.rotation = Quaternion.Euler(0, 0, rotZ);
-        }
-        else if (cropInRange)
-        {
-            foreach (RaycastHit2D hit in cropRanged)
+                FindCrops();
+            } else if (playerInRange)
             {
-                Vector3 cropPosition = hit.collider.GetComponent<Transform>().transform.position;
-                distance = cropPosition - transform.position;
-                if (distance.x <= closest.x || distance.y <= closest.y)
-                    closest = distance;
+                FindPlayer();
+            }else
+            {
+                closest = nullLocation - transform.position;
             }
         } else
         {
-            closest = nullLocation - transform.position;
+            if (playerInRange)
+            {
+                FindPlayer();
+            }
+            else if (cropInRange)
+            {
+                FindCrops();
+            }
+            else
+            {
+                closest = nullLocation - transform.position;
+            }
         }
         closest.Normalize();
         float rotZ = Mathf.Atan2(closest.y, closest.x) * Mathf.Rad2Deg;
@@ -83,6 +84,28 @@ public class EnemyAim : MonoBehaviour
                 Flip();
                 facingRight = false;
             }
+        }
+    }
+
+    private void FindPlayer()
+    {
+        foreach (RaycastHit2D hit in playerRanged)
+        {
+            Vector3 playerPosition = hit.collider.GetComponent<Transform>().transform.position;
+            distance = playerPosition - transform.position;
+            if (distance.x <= closest.x || distance.y <= closest.y)
+                closest = distance;
+        }
+    }
+
+    private void FindCrops()
+    {
+        foreach (RaycastHit2D hit in cropRanged)
+        {
+            Vector3 cropPosition = hit.collider.GetComponent<Transform>().transform.position;
+            distance = cropPosition - transform.position;
+            if (distance.x <= closest.x || distance.y <= closest.y)
+                closest = distance;
         }
     }
 

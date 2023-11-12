@@ -14,10 +14,12 @@ public class LevelManager : MonoBehaviour
     [SerializeField] private Text inheritedWeapon, newWeapon;
     [SerializeField] private int level;
     [SerializeField] private int waveDelay = 5;
-    [SerializeField] bool isFirstLevel = false;
+    [SerializeField] private bool isFirstLevel = false;
     [SerializeField] private GameObject[] spawnPoints;
     [SerializeField] private AudioClip waveSpawnSound;
-    [SerializeField] private Vector3 nullLocation = new Vector3(-2, -16, 0);
+    [SerializeField] private GameObject bossPrefab;
+    [SerializeField] private bool isLastLevel;
+    [SerializeField] private Vector3 nullLocation = new Vector3(-2, -16);
 
     private AudioSource waveAudio;
     private int finalWeaponChoice;
@@ -32,10 +34,8 @@ public class LevelManager : MonoBehaviour
     }
     private void Start()
     {
-        Time.timeScale = 0;
-        totalEnemyCount = 0;
 
-        choiceUI.SetActive(true);
+        totalEnemyCount = 0;
         victoryUI.SetActive(false);
         defeatUI.SetActive(false);
         DialogueUI.SetActive(false);
@@ -44,18 +44,25 @@ public class LevelManager : MonoBehaviour
         waveAudio = GetComponent<AudioSource>();
         currentWave = 0;
         currentLevel = gameController.GetCurrentLevel();
-        waveCount = gameController.GetWaveCount();
-        if (isFirstLevel)
+
+        if (isLastLevel)
         {
-            GetWeapons();
+            waveCount = 1;
+            inheritWeapon = gameController.GetWeaponChoice();
+            ChooseOldWeapon();
+            SpawnBoss();
         }
         else
         {
+            Time.timeScale = 0;
+            waveCount = gameController.GetWaveCount();
+            choiceUI.SetActive(true);
             GetWeapons();
+            inheritedWeapon.text = inheritWeapon.GetComponent<PlayerWeapon>().GetName();
+            newWeapon.text = selfWeapon.GetComponent<PlayerWeapon>().GetName();
+            StartCoroutine(WaveDelay());
         }
-        inheritedWeapon.text = inheritWeapon.GetComponent<PlayerWeapon>().GetName();
-        newWeapon.text = selfWeapon.GetComponent<PlayerWeapon>().GetName();
-        StartCoroutine(WaveDelay());
+
     }
 
     private void GetWeapons()
@@ -66,7 +73,7 @@ public class LevelManager : MonoBehaviour
 
     public GameObject GetDefeatScreen()
     {
- 
+
         return defeatUI;
     }
 
@@ -92,6 +99,10 @@ public class LevelManager : MonoBehaviour
         }
     }
 
+    public Vector3 GetNullLocation()
+    {
+        return nullLocation;
+    }
     public void SpawnEnemies()
     {
         waveAudio.PlayOneShot(waveSpawnSound);
@@ -99,8 +110,8 @@ public class LevelManager : MonoBehaviour
         for (int i = 0; i < 3; i++)
         {
             int enemyCount = gameController.GetEnemyCount(currentWave, i);
-            
-            for (int j  = 0; j < enemyCount; j++)
+
+            for (int j = 0; j < enemyCount; j++)
             {
                 totalEnemyCount++;
                 float randomOffsetX = Random.Range(-5, 5);
@@ -111,6 +122,13 @@ public class LevelManager : MonoBehaviour
                 Instantiate(enemyTypes[i], spawnPoints[randomPos].transform.position + randomOffsets, Quaternion.identity);
             }
         }
+    }
+
+    public void SpawnBoss()
+    {
+        waveAudio.PlayOneShot(waveSpawnSound);
+        totalEnemyCount = 1;
+        Instantiate(bossPrefab, spawnPoints[0].transform.position, Quaternion.identity);
     }
 
     public void AddCrop(int health)
@@ -130,10 +148,6 @@ public class LevelManager : MonoBehaviour
         }
     }
 
-    public Vector3 GetNullLocation()
-    {
-        return nullLocation;
-    }
     public void ChooseOldWeapon()
     {
         playerManager.SetWeapon(inheritWeapon);

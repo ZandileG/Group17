@@ -9,7 +9,7 @@ public class GameController : MonoBehaviour
     //Cointainer for the different weapon choices, set up in the format
     //Weapon, Weapon tier.
     [SerializeField] GameObject[] bowWeapons, revolverWeapons, shotgunWeapons, smgWeapons, arWeapons;
-    [SerializeField] GameObject[,] playerWeapons = new GameObject[5,5];
+    [SerializeField] GameObject[,] playerWeapons = new GameObject[5, 6];
     private int weaponChoice = 0;
     private int currentLevel;
     private int[] waveCount = new int[5] { 2, 2, 3, 3, 5 };
@@ -18,9 +18,9 @@ public class GameController : MonoBehaviour
     //Declared in the format of: level, wave, enemy count
     //Enemy count is formated as Tokoloshe Count, Grootslang Count, Ga-Gorib Count
     private int[,,] enemyCount = new int[5, 5, 3] {
-        { {1,1,1}, 
-          {2,2,1}, 
-          {0,0,0}, 
+        { {1,1,1},
+          {2,2,1},
+          {0,0,0},
           {0,0,0},
           {0,0,0}
         },
@@ -56,7 +56,7 @@ public class GameController : MonoBehaviour
         DontDestroyOnLoad(this.gameObject);
 
         villainOpinion = 0;
-        for (int i = 0; i < 5; i++)
+        for (int i = 0; i < 6; i++)
         {
             playerWeapons[0, i] = bowWeapons[i];
             playerWeapons[1, i] = revolverWeapons[i];
@@ -64,7 +64,7 @@ public class GameController : MonoBehaviour
             playerWeapons[3, i] = smgWeapons[i];
             playerWeapons[4, i] = arWeapons[i];
         }
-        currentLevel = 0;
+        currentLevel = -1;
 
     }
 
@@ -104,7 +104,7 @@ public class GameController : MonoBehaviour
     public GameObject GetLevelWeapon()
     {
         int i = currentLevel - 1;
-        return playerWeapons[i,i];
+        return playerWeapons[i, i];
     }
 
     public void NextLevel()
