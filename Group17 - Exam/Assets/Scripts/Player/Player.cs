@@ -16,8 +16,6 @@ public class Player : MonoBehaviour
     [SerializeField] private int dummyCount;
     [SerializeField] private bool isDummy = false;
     [SerializeField] private AudioClip hitSound;
-    [SerializeField] private float destroyTime;
-    [SerializeField] private GameObject[] dummies = new GameObject[2];
 
     private AudioSource playerAudio;
     private KeyCode dropDummy = KeyCode.Q;
@@ -25,20 +23,16 @@ public class Player : MonoBehaviour
 
     private void Start()
     {
-        isInvil = false;
         if (!isDummy)
         {
-
+            isInvil = false;
             playerManager = GetComponent<PlayerManager>();
             playerAudio = GetComponent<AudioSource>();
+            defeatUI = playerManager.GetUI();
+            defeatUI.SetActive(false);
             healthBar.maxValue = maxHealth;
             healthBar.value = maxHealth;
             currenthealth = maxHealth;
-            defeatUI = playerManager.GetUI();
-            defeatUI.SetActive(false);
-        } else
-        {
-            StartCoroutine(DestroySelf());
         }
     }
 
@@ -56,9 +50,8 @@ public class Player : MonoBehaviour
             }
         }
     }
-    public bool Damage(int damage)
+    public void Damage(int damage)
     {
-        bool state = true;
         if (!isDummy)
         {
             if (!isInvil)
@@ -73,15 +66,9 @@ public class Player : MonoBehaviour
                     defeatUI.SetActive(true);
                     Time.timeScale = 0;
                 }
-
                 isInvil = true;
                 StartCoroutine(PlayerInvil());
-                state = true;
-            } else
-            {
-                state = false;
             }
-
         } else
         {
             currenthealth -= damage;
@@ -89,9 +76,7 @@ public class Player : MonoBehaviour
             {
                 Destroy(gameObject);
             }
-            state = true;
         }
-        return state;
     }
     public void UnlockCursor()
     {
@@ -120,12 +105,6 @@ public class Player : MonoBehaviour
     {
         GameObject newDummy = Instantiate(dummy, this.transform.position, this.transform.rotation);
         dummyCount--;
-        dummies[dummyCount].SetActive(false);
-    }
-
-    public bool GetIsInvil()
-    {
-        return isInvil;
     }
 
     public void SetHealth(int newHealth)
@@ -140,11 +119,5 @@ public class Player : MonoBehaviour
     public bool DoesPlayerNeedHealing()
     {
         return (currenthealth < maxHealth);
-    }
-
-    IEnumerator DestroySelf()
-    {
-        yield return new WaitForSeconds(destroyTime);
-        Destroy(gameObject);
     }
 }

@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class LevelManager : MonoBehaviour
@@ -15,11 +14,9 @@ public class LevelManager : MonoBehaviour
     [SerializeField] private Text inheritedWeapon, newWeapon;
     [SerializeField] private int level;
     [SerializeField] private int waveDelay = 5;
-    [SerializeField] private bool isFirstLevel = false;
+    [SerializeField] bool isFirstLevel = false;
     [SerializeField] private GameObject[] spawnPoints;
     [SerializeField] private AudioClip waveSpawnSound;
-    [SerializeField] private GameObject bossPrefab;
-    [SerializeField] private bool isLastLevel;
 
     private AudioSource waveAudio;
     private int finalWeaponChoice;
@@ -34,8 +31,10 @@ public class LevelManager : MonoBehaviour
     }
     private void Start()
     {
-
+        Time.timeScale = 0;
         totalEnemyCount = 0;
+
+        choiceUI.SetActive(true);
         victoryUI.SetActive(false);
         defeatUI.SetActive(false);
         DialogueUI.SetActive(false);
@@ -44,33 +43,18 @@ public class LevelManager : MonoBehaviour
         waveAudio = GetComponent<AudioSource>();
         currentWave = 0;
         currentLevel = gameController.GetCurrentLevel();
-
-        if (isLastLevel)
+        waveCount = gameController.GetWaveCount();
+        if (isFirstLevel)
         {
-            if (gameController.GetVillainOpinion() > 0)
-            {
-                gameController.NextLevel();
-                SceneManager.LoadScene("Level7");
-            }
-            else
-            {
-                waveCount = 1;
-                inheritWeapon = gameController.GetWeaponChoice();
-                ChooseOldWeapon();
-                SpawnBoss();
-            }
+            GetWeapons();
         }
         else
         {
-            Time.timeScale = 0;
-            waveCount = gameController.GetWaveCount();
-            choiceUI.SetActive(true);
             GetWeapons();
-            inheritedWeapon.text = inheritWeapon.GetComponent<PlayerWeapon>().GetName();
-            newWeapon.text = selfWeapon.GetComponent<PlayerWeapon>().GetName();
-            StartCoroutine(WaveDelay());
         }
-
+        inheritedWeapon.text = inheritWeapon.GetComponent<PlayerWeapon>().GetName();
+        newWeapon.text = selfWeapon.GetComponent<PlayerWeapon>().GetName();
+        StartCoroutine(WaveDelay());
     }
 
     private void GetWeapons()
@@ -126,13 +110,6 @@ public class LevelManager : MonoBehaviour
                 Instantiate(enemyTypes[i], spawnPoints[randomPos].transform.position + randomOffsets, Quaternion.identity);
             }
         }
-    }
-
-    public void SpawnBoss()
-    {
-        waveAudio.PlayOneShot(waveSpawnSound);
-        totalEnemyCount = 1;
-        Instantiate(bossPrefab, spawnPoints[0].transform.position, Quaternion.identity);
     }
 
     public void AddCrop(int health)

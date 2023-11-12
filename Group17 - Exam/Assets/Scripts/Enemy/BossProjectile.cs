@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class BossProjectile : MonoBehaviour
@@ -11,12 +10,12 @@ public class BossProjectile : MonoBehaviour
     [SerializeField] private float projectileForce;
     [SerializeField] private Vector2 projectileDir;
     private Collider2D playerPos;
-    public bool playerInRange;
+    private bool playerInRange;
     private int damage = 2;
 
     private void Start()
     {
-        //InvokeRepeating("Fire", 0f, 0.2f);
+        InvokeRepeating("Fire", 0f, 0.2f);
         StartCoroutine(DestroySelf());
     }
 
@@ -29,7 +28,11 @@ public class BossProjectile : MonoBehaviour
             playerInRange = false;
         if (playerInRange)
         {
-            Fire();
+            Vector3 rotation = playerPos.transform.position - transform.position;
+
+            float rotZ = Mathf.Atan2(rotation.y, rotation.x) * Mathf.Rad2Deg;
+
+            transform.rotation = Quaternion.Euler(0, 0, rotZ);
         }
         else
         {
@@ -39,14 +42,13 @@ public class BossProjectile : MonoBehaviour
     }
     private void Fire()
     {
-        Vector3 rotation = playerPos.transform.position - transform.position;
-        //GetComponent<Rigidbody2D>().AddForce(velocity);
-        rotation.Normalize();
-        float rotZ = Mathf.Atan2(rotation.y, rotation.x) * Mathf.Rad2Deg;
-        Debug.Log(rotZ.ToString());
-        transform.rotation = Quaternion.Euler(0, 0, rotZ);
-        GetComponent<Rigidbody2D>().AddForce(rotation * projectileForce, ForceMode2D.Impulse);
-        //GetComponent<Rigidbody2D>().velocity = aim * projectileForce;
+        if (playerInRange)
+        {
+            Vector3 rotation = playerPos.transform.position - transform.position;
+            //GetComponent<Rigidbody2D>().AddForce(velocity);
+            projectileDir = transform.up * rotation.y + transform.right * rotation.x;
+            GetComponent<Rigidbody2D>().AddForce(projectileDir * projectileForce, ForceMode2D.Impulse);
+        }
     }
 
     IEnumerator DestroySelf()
@@ -69,16 +71,10 @@ public class BossProjectile : MonoBehaviour
     {
         if (other.TryGetComponent<Player>(out Player player))
         {
-            if (player.Damage(damage))
-                Destroy(gameObject);
+            //Debug.Log("Hit");
+            player.Damage(damage);
+            Destroy(gameObject);
         }
-
-    }
-
-    private void OnDrawGizmosSelected()
-    {
-
-        Gizmos.DrawSphere(transform.position, agroRange);
 
     }
 }

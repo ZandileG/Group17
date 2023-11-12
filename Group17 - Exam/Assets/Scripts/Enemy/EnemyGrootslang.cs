@@ -65,6 +65,7 @@ public class EnemyGrootslang : MonoBehaviour
         if (playerInRange)
         {
             Vector3 rotation = enemyAim.GetRotation();
+
             float rotZ = Mathf.Atan2(rotation.y, rotation.x) * Mathf.Rad2Deg;
 
             //attackPoint.rotation = Quaternion.Euler(0, 0, rotZ);

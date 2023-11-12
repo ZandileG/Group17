@@ -7,18 +7,15 @@ using TMPro;
 
 public class Storytelling : MonoBehaviour
 {
-
     public TextMeshProUGUI storyText;
     public string[] storySentences;
     public float textSpeed = 0.1f;
 
-    private GameController gameController;
     private int currentSentenceIndex;
     private bool isTextAnimating;
 
     private void Start()
     {
-        gameController = FindObjectOfType<GameController>();
         StartCoroutine(AnimateText());
     }
 
@@ -45,8 +42,7 @@ public class Storytelling : MonoBehaviour
                 else
                 {
                     // The story is complete. Transition to the main game scene.
-                    gameController.NextLevel();
-                    SceneManager.LoadScene("Level1");
+                    SceneManager.LoadScene(2);
                 }
             }
         }
