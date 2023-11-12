@@ -1179,7 +1179,7 @@ Transform:
   m_GameObject: {fileID: 6078878972318527282}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.3, y: 0.3, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6398819605490101}
@@ -1332,10 +1332,6 @@ MonoBehaviour:
   dummyCount: 1
   isDummy: 0
   hitSound: {fileID: 8300000, guid: 31ac8c7dd193afc468b49ffc087e6224, type: 3}
-  destroyTime: 0
-  dummies:
-  - {fileID: 6079251237831251621}
-  - {fileID: 6717956658454343011}
 --- !u!114 &6398819824497215
 MonoBehaviour:
   m_ObjectHideFlags: 0

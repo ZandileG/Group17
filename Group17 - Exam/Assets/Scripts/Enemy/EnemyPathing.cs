@@ -9,6 +9,7 @@ public class EnemyPathing : MonoBehaviour
     [SerializeField] private float movementSpeed = 150f;
     [SerializeField] private AudioClip walkSound;
 
+
     private AudioSource enemyAudio;
     // Start is called before the first frame update
     void Start()

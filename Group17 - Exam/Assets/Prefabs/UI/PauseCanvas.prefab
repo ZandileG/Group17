@@ -654,7 +654,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1713ebe3cb0f78a4e9cd52ae4e20e694, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  musicSource: {fileID: 52599308925077418}
   menuScreen: {fileID: 3679905356283271767}
 --- !u!114 &3679905355898613983
 MonoBehaviour:
@@ -777,11 +776,6 @@ PrefabInstance:
 --- !u!224 &52599308925077417 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3723202172113746332, guid: 1ee9d8a2ec02d3e40b36357c803d8560, type: 3}
-  m_PrefabInstance: {fileID: 3679905357018463797}
-  m_PrefabAsset: {fileID: 0}
---- !u!82 &52599308925077418 stripped
-AudioSource:
-  m_CorrespondingSourceObject: {fileID: 3723202172113746335, guid: 1ee9d8a2ec02d3e40b36357c803d8560, type: 3}
   m_PrefabInstance: {fileID: 3679905357018463797}
   m_PrefabAsset: {fileID: 0}
 --- !u!82 &52599308925077419 stripped

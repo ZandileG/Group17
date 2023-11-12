@@ -17,6 +17,7 @@ public class LevelManager : MonoBehaviour
     [SerializeField] bool isFirstLevel = false;
     [SerializeField] private GameObject[] spawnPoints;
     [SerializeField] private AudioClip waveSpawnSound;
+    [SerializeField] private Vector3 nullLocation = new Vector3(-2, -16, 0);
 
     private AudioSource waveAudio;
     private int finalWeaponChoice;
@@ -129,6 +130,10 @@ public class LevelManager : MonoBehaviour
         }
     }
 
+    public Vector3 GetNullLocation()
+    {
+        return nullLocation;
+    }
     public void ChooseOldWeapon()
     {
         playerManager.SetWeapon(inheritWeapon);

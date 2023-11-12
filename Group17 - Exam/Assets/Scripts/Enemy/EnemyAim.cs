@@ -6,17 +6,19 @@ public class EnemyAim : MonoBehaviour
 {
     [SerializeField] private float rangedAgroRange;
     [SerializeField] private LayerMask playerLayer, cropLayer;
+    private Vector3 nullLocation;
     private Vector2 closest;
     private Vector3[] playersInRange, cropsInRange;
     private Vector2 distance;
     private RaycastHit2D[] playerRanged, cropRanged;
     private bool playerInRange, facingRight, cropInRange;
-
+    
     private void Start()
     {
         playerInRange = false;
         cropInRange = false;
         facingRight = true;
+        nullLocation = FindObjectOfType<LevelManager>().GetNullLocation();
     }
 
 
@@ -62,7 +64,7 @@ public class EnemyAim : MonoBehaviour
             }
         } else
         {
-            closest = Vector3.zero - transform.position;
+            closest = nullLocation - transform.position;
         }
         closest.Normalize();
         float rotZ = Mathf.Atan2(closest.y, closest.x) * Mathf.Rad2Deg;
