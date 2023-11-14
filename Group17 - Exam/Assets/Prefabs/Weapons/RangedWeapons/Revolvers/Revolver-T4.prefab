@@ -142,7 +142,7 @@ Transform:
   m_GameObject: {fileID: 6659639763315482395}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5231127389618230484}
@@ -168,7 +168,7 @@ MonoBehaviour:
   loadedProjectile: {fileID: 7762108164362330406, guid: 6fb7229ab515ca14b95dbc40abf11c36, type: 3}
   reloadIndicator: {fileID: 0}
   ammoDisplay: {fileID: 0}
-  damage: 6
+  damage: 10
   shotDelay: 0.2
   shotForce: 120
   fireCount: 1

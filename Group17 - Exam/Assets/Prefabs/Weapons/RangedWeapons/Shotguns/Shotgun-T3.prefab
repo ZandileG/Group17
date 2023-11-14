@@ -142,7 +142,7 @@ Transform:
   m_GameObject: {fileID: 6702222261314568105}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2479045008678239385}
@@ -168,15 +168,15 @@ MonoBehaviour:
   loadedProjectile: {fileID: 4616706464196156806, guid: fff878703d025d046ba9385c41490649, type: 3}
   reloadIndicator: {fileID: 0}
   ammoDisplay: {fileID: 0}
-  damage: 4
-  shotDelay: 1
+  damage: 6
+  shotDelay: 0.25
   shotForce: 120
   fireCount: 8
   fireSpread: 2
   hasChargeTime: 0
   chargeRate: 0
   reloadTime: 0.5
-  ammoCount: 2
+  ammoCount: 5
   weaponName: AirGun
   fireSound: {fileID: 8300000, guid: cd61658bed81e864485d7cbc1ec904e5, type: 3}
 --- !u!82 &-4762029595584462595

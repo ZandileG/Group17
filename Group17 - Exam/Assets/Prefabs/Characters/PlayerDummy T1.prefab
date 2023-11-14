@@ -150,7 +150,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e47bdd8750189d14883c510c190d1912, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 50
+  maxHealth: 30
   currenthealth: 50
   playerName: 
   healthBar: {fileID: 0}
@@ -161,7 +161,4 @@ MonoBehaviour:
   dummyCount: 0
   isDummy: 1
   hitSound: {fileID: 0}
-  destroyTime: 10
-  dummies:
-  - {fileID: 0}
-  - {fileID: 0}
+  lifetime: 10

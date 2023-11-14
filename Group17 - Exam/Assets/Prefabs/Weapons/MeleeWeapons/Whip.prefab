@@ -81,7 +81,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   manager: {fileID: 0}
   animator: {fileID: 453649456412893407}
-  meleeDamage: 1
+  meleeDamage: 3
   meleeRange: 0.1
   meleePoint: {fileID: 213047098914110248}
   enemyLayer:
@@ -430,7 +430,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3740622916236292734}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.348, y: 0, z: 0}
+  m_LocalPosition: {x: 0.671, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

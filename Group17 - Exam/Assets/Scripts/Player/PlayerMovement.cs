@@ -62,7 +62,9 @@ public class PlayerMovement : MonoBehaviour
 
         if (horizInput > 0 || vertInput > 0)
             if (!playerAudio.isPlaying)
-            playerAudio.PlayOneShot(walkSound);
+                playerAudio.PlayOneShot(walkSound);
+        if (horizInput == 0 && vertInput == 0)
+            playerRB.velocity = Vector2.zero;
 
         if (Input.GetKey(sprintKey) && playerStamina > 5)
         {
