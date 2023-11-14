@@ -1386,7 +1386,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1165932011
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1954,12 +1954,35 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "1. Use WASD or the arrow keys to move.\n\n2. Press left click to fire,\n
-    if you are using a bow hold and release left click instead.\n\n3. Right click
-    to do a melee attack.\n\n4. Press the space bar to roll.\n\n5. Press WASD or
-    the arrow keys + Shift to sprint\n\n6. Click your mouse or trackpad to shoot
-    at enemies.\n\n7. Press 'Q' to drop bait for the enemies.\n\n8. Press the Esc
-    key to pause the game."
+  m_text: '1. Use WASD or the arrow keys to move.
+
+
+    2. Press left click to fire,
+
+    if
+    you are using a bow hold and release left click instead.
+
+
+    3. Right click
+    to do a melee attack.
+
+
+    4. Press the space bar to roll.
+
+
+    5. Press WASD
+    or the arrow keys + Shift to sprint
+
+
+    6. Click your mouse or trackpad to
+    shoot at enemies.
+
+
+    7. Press ''Q'' to drop bait for the enemies.
+
+
+    8.
+    Press the Esc key to pause the game.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
   m_sharedMaterial: {fileID: 2164040, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
