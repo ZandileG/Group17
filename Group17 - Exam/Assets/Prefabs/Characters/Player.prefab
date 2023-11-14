@@ -1334,6 +1334,9 @@ MonoBehaviour:
   isDummy: 0
   hitSound: {fileID: 8300000, guid: 31ac8c7dd193afc468b49ffc087e6224, type: 3}
   lifetime: 0
+  dummyIndicator:
+  - {fileID: 6079251237831251621}
+  - {fileID: 6717956658454343011}
 --- !u!114 &6398819824497215
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -17,6 +17,7 @@ public class Player : MonoBehaviour
     [SerializeField] private bool isDummy = false;
     [SerializeField] private AudioClip hitSound;
     [SerializeField] private int lifetime;
+    [SerializeField] private GameObject[] dummyIndicator = new GameObject[2];
 
     private AudioSource playerAudio;
     private KeyCode dropDummy = KeyCode.Q;
@@ -121,6 +122,7 @@ public class Player : MonoBehaviour
     {
         GameObject newDummy = Instantiate(dummy, this.transform.position, this.transform.rotation);
         dummyCount--;
+        dummyIndicator[dummyCount].SetActive(false);
     }
 
     public bool GetIsInvil()

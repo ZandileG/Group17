@@ -7,6 +7,7 @@ public class EnemyAim : MonoBehaviour
     [SerializeField] private float rangedAgroRange;
     [SerializeField] private LayerMask playerLayer, cropLayer;
     [SerializeField] private bool focusCrops;
+    [SerializeField] private GameObject sprite;
     private Vector3 nullLocation;
     private Vector2 closest;
     private Vector3[] playersInRange, cropsInRange;
@@ -39,7 +40,8 @@ public class EnemyAim : MonoBehaviour
             if (hit == true)
                 cropInRange = true;
         }
-        closest = Vector2.zero;
+        //closest = Vector2.zero;
+        closest = nullLocation - transform.position;
         if (focusCrops)
         {
             if (cropInRange)
@@ -128,8 +130,8 @@ public class EnemyAim : MonoBehaviour
 
     private void Flip()
     {
-        Vector3 currentScale = this.transform.localScale;
+        Vector3 currentScale = sprite.transform.localScale;
         currentScale.x *= -1;
-        this.transform.localScale = currentScale;
+        sprite.transform.localScale = currentScale;
     }
 }

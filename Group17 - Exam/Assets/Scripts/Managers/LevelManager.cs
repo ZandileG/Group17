@@ -48,7 +48,7 @@ public class LevelManager : MonoBehaviour
 
         if (isLastLevel)
         {
-            if (gameController.GetVillainOpinion() >= 0)
+            if (gameController.GetVillainOpinion() < 0)
             {
                 waveCount = 1;
                 inheritWeapon = gameController.GetWeaponChoice();

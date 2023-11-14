@@ -1007,6 +1007,8 @@ MonoBehaviour:
   cropLayer:
     serializedVersion: 2
     m_Bits: 128
+  focusCrops: 0
+  sprite: {fileID: 5420576795105051114}
 --- !u!114 &-6038454748420221781
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1047,7 +1049,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   selfRb: {fileID: 0}
   enemyAim: {fileID: 0}
-  movementSpeed: 50
+  movementSpeed: 120
   walkSound: {fileID: 8300000, guid: 7d26c88131c6d4e44b68661965f75d1b, type: 3}
 --- !u!114 &6044147601624377387
 MonoBehaviour:
@@ -1167,7 +1169,7 @@ MonoBehaviour:
   - {x: -1.6613996, y: -2.0899832, z: 0}
   m_ShapePathHash: -875146210
   m_Mesh: {fileID: 0}
-  m_InstanceId: 48232
+  m_InstanceId: 53320
 --- !u!82 &-3839840974146549636
 AudioSource:
   m_ObjectHideFlags: 0

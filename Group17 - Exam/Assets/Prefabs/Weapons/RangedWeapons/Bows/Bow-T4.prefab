@@ -144,7 +144,7 @@ MonoBehaviour:
   fireCount: 1
   fireSpread: 0
   hasChargeTime: 1
-  chargeRate: 0.1
+  chargeRate: 0.5
   reloadTime: 0.2
   ammoCount: 1
   weaponName: CompoundBow
