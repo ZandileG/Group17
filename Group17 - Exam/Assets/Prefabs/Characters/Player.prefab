@@ -947,7 +947,7 @@ RectTransform:
   m_GameObject: {fileID: 6398820488722293}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 90}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6398819251922851}
@@ -960,7 +960,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0.17, y: 7.92}
   m_SizeDelta: {x: 10, y: 10}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &6398820488722297
@@ -1163,6 +1163,7 @@ GameObject:
   - component: {fileID: 6398819824497215}
   - component: {fileID: 271892335549569798}
   - component: {fileID: 5959496088963527418}
+  - component: {fileID: 3279896289256084243}
   m_Layer: 3
   m_Name: Player
   m_TagString: Untagged
@@ -1332,6 +1333,7 @@ MonoBehaviour:
   dummyCount: 1
   isDummy: 0
   hitSound: {fileID: 8300000, guid: 31ac8c7dd193afc468b49ffc087e6224, type: 3}
+  lifetime: 0
 --- !u!114 &6398819824497215
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1456,6 +1458,26 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!95 &3279896289256084243
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6078878972318527282}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 816a6888410fc0643a943ea8f1e04d2a, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
 --- !u!1 &6079251237831251621
 GameObject:
   m_ObjectHideFlags: 0

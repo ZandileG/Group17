@@ -15,6 +15,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] Slider staminaBar;
     [SerializeField] private AudioClip walkSound;
 
+    private Animator playerAnimator;
     private AudioSource playerAudio;
     private int playerStamina;
     private Rigidbody2D playerRB;
@@ -30,6 +31,7 @@ public class PlayerMovement : MonoBehaviour
         playerRB = GetComponent<Rigidbody2D>();
         orientation = GetComponent<Transform>();
         playerAudio = GetComponent<AudioSource>();
+        playerAnimator = GetComponent<Animator>();
         playerStamina = playerMaxStamina;
         staminaBar.maxValue = playerMaxStamina;
         staminaBar.value = playerMaxStamina;
@@ -98,6 +100,15 @@ public class PlayerMovement : MonoBehaviour
         moveDirection = orientation.up * vertInput + orientation.right * horizInput;
         playerRB.AddForce(moveDirection.normalized * playerRollSpeed * 20f, ForceMode2D.Impulse);
         playerStamina -= 10;
+        if (moveDirection.x >= 0)
+        {
+            playerAnimator.SetTrigger("Right");
+
+        }
+        else
+        {
+            playerAnimator.SetTrigger("Left");
+        }
         StartCoroutine(RollDelay());
     }
 
