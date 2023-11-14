@@ -117,6 +117,11 @@ public class GameController : MonoBehaviour
         weaponChoice = value;
     }
 
+    public int GetVillainOpinion()
+    {
+        return villainOpinion;
+    }
+
     public void ModifyVillainOpinion(int value)
     {
         villainOpinion += value;

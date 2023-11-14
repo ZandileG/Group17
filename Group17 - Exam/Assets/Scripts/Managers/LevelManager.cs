@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class LevelManager : MonoBehaviour
@@ -47,10 +48,16 @@ public class LevelManager : MonoBehaviour
 
         if (isLastLevel)
         {
-            waveCount = 1;
-            inheritWeapon = gameController.GetWeaponChoice();
-            ChooseOldWeapon();
-            SpawnBoss();
+            if (gameController.GetVillainOpinion() >= 0)
+            {
+                waveCount = 1;
+                inheritWeapon = gameController.GetWeaponChoice();
+                ChooseOldWeapon();
+                SpawnBoss();
+            } else
+            {
+                SceneManager.LoadScene("Level7");
+            }
         }
         else
         {

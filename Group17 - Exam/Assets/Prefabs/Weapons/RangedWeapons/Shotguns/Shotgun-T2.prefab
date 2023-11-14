@@ -142,7 +142,7 @@ Transform:
   m_GameObject: {fileID: 6702222261314568105}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2479045008678239385}
@@ -168,15 +168,15 @@ MonoBehaviour:
   loadedProjectile: {fileID: 4616706464196156806, guid: fff878703d025d046ba9385c41490649, type: 3}
   reloadIndicator: {fileID: 0}
   ammoDisplay: {fileID: 0}
-  damage: 10
-  shotDelay: 2
+  damage: 4
+  shotDelay: 0.5
   shotForce: 80
   fireCount: 5
   fireSpread: 2
   hasChargeTime: 0
   chargeRate: 0
   reloadTime: 0.75
-  ammoCount: 1
+  ammoCount: 4
   weaponName: Slug
   fireSound: {fileID: 8300000, guid: 6efe3065a72725440bebe8fc8c98387a, type: 3}
 --- !u!82 &-3451328358932157959

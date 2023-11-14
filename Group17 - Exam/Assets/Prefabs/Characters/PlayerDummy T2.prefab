@@ -161,7 +161,4 @@ MonoBehaviour:
   dummyCount: 0
   isDummy: 1
   hitSound: {fileID: 0}
-  destroyTime: 20
-  dummies:
-  - {fileID: 0}
-  - {fileID: 0}
+  lifetime: 20

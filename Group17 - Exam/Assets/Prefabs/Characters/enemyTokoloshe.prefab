@@ -56,7 +56,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e5bff908f1a1d1148b59c7c569d73dab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 1
+  health: 2
   attackDamage: 2
   healthDisplay: {fileID: 8302811461338421127}
   levelManager: {fileID: 0}
@@ -178,6 +178,7 @@ MonoBehaviour:
   cropLayer:
     serializedVersion: 2
     m_Bits: 128
+  focusCrops: 1
 --- !u!114 &4359326397312019295
 MonoBehaviour:
   m_ObjectHideFlags: 0

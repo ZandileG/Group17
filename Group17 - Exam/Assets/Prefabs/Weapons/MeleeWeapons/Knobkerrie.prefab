@@ -165,7 +165,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   manager: {fileID: 0}
   animator: {fileID: 1611680099143728557}
-  meleeDamage: 2
+  meleeDamage: 4
   meleeRange: 0.3
   meleePoint: {fileID: 2523765029327712540}
   enemyLayer:
